@@ -1755,10 +1755,11 @@ function ajustar(){ if (RENDER) return; const e=document.getElementById('escena'
 addEventListener('resize', ajustar); ajustar();
 let ocupado=false, pendiente=null;
 async function pintar(t){ if (ocupado){ pendiente=t; return; } ocupado=true; try{ await window.seek(t); } finally { ocupado=false; } if (pendiente!==null){ const p=pendiente; pendiente=null; pintar(p); } }
-function ui(t){ barra.value=t; reloj.textContent=t.toFixed(2)+' / '+window.DURATION.toFixed(2)+' s'; btn.textContent = voz.paused ? '▶ Reproducir' : '❚❚ Pausa'; }
-function bucle(){ const t=voz.currentTime; ui(t); pintar(t); if (!voz.paused && !voz.ended) requestAnimationFrame(bucle); else ui(voz.currentTime); }
-btn.onclick = ()=>{ if (voz.paused){ if (voz.currentTime >= window.DURATION-0.05) voz.currentTime=0; voz.play().then(()=>requestAnimationFrame(bucle)).catch(e=>{ reloj.textContent='sin audio: '+e.message; }); } else { voz.pause(); ui(voz.currentTime); } };
-barra.oninput = ()=>{ const t=+barra.value; voz.currentTime=t; ui(t); pintar(t); };
+let silencioso=false, reproduciendo=false, tiempo=0, inicio=0;
+function ui(t){ barra.value=t; reloj.textContent=t.toFixed(2)+' / '+window.DURATION.toFixed(2)+' s'; btn.textContent = (silencioso ? !reproduciendo : voz.paused) ? '▶ Reproducir' : '❚❚ Pausa'; }
+function bucle(){ const t=silencioso ? Math.min(window.DURATION, tiempo+(performance.now()-inicio)/1000) : voz.currentTime; if (silencioso && t>=window.DURATION){ tiempo=t; reproduciendo=false; } ui(t); pintar(t); if (silencioso ? reproduciendo : !voz.paused && !voz.ended) requestAnimationFrame(bucle); }
+btn.onclick = ()=>{ if (silencioso){ if (reproduciendo){ tiempo=Math.min(window.DURATION, tiempo+(performance.now()-inicio)/1000); reproduciendo=false; ui(tiempo); } else { if (tiempo>=window.DURATION-0.05) tiempo=0; inicio=performance.now(); reproduciendo=true; requestAnimationFrame(bucle); } } else if (voz.paused){ if (voz.currentTime >= window.DURATION-0.05) voz.currentTime=0; voz.play().then(()=>requestAnimationFrame(bucle)).catch(()=>{ silencioso=true; tiempo=+barra.value; inicio=performance.now(); reproduciendo=true; requestAnimationFrame(bucle); }); } else { voz.pause(); ui(voz.currentTime); } };
+barra.oninput = ()=>{ const t=+barra.value; if (silencioso){ tiempo=t; inicio=performance.now(); } else voz.currentTime=t; ui(t); pintar(t); };
 voz.onended = ()=>ui(voz.currentTime);
 addEventListener('keydown', e=>{ if (e.code==='Space' && !RENDER){ e.preventDefault(); btn.onclick(); } });
 window.seek(0);

@@ -8,8 +8,8 @@
     <td width="68%"><img src="examples/dessert-reel/bocetos/HOJA.png" alt="Contact sheet of ten 3D frames from the dessert reel storyboard" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><sub>Finished reel (excerpt). Full videos in <a href="media/">media/</a>.</sub></td>
-    <td align="center"><sub>Storyboard contact sheet: where the human review happens.</sub></td>
+    <td align="center"><sub>Finished reel from another case (excerpt). Full videos in <a href="media/">media/</a>.</sub></td>
+    <td align="center"><sub>Storyboard contact sheet (dessert case): the ~$1.20 checkpoint where human review happens.</sub></td>
   </tr>
 </table>
 
@@ -47,7 +47,7 @@ The route is defined in [`pipeline/video-fabrica.json`](pipeline/video-fabrica.j
 ## Where judgment sits
 
 - **The idea, the hook and the storyboard** are human checkpoints, because that's where a mistake costs the whole video and fixing it costs almost nothing.
-- **The correction book.** Every correction I make becomes a written rule with a counter of how many times it has come up (`x3`, `x5`). Reviewer agents apply only the rules that matter for that video and return PASS/FAIL citing the rule. I don't correct the same thing twice. → [docs/correction-book.md](docs/correction-book.md)
+- **The correction book.** Every correction I make becomes a written rule with a counter of how many times it has come up (`x3`, `x5`). Reviewer agents apply only the rules that matter for that video and return PASS/FAIL citing the rule. Every correction is recorded to reduce its recurrence. → [docs/correction-book.md](docs/correction-book.md)
 - **The visual reviewer is not a gate.** A model reviewing frames said "CHANGE" in 4 out of 4 reviews and once praised improvements that didn't exist. Its notes are triaged; motion and sound are judged by a person.
 - **The orchestrator doesn't build or read long files.** 53% of its spending was re-reading context, so it now writes briefs and reads short reports. 18 orchestrator failures are logged with root cause and structural fix. → [docs/failure-log.md](docs/failure-log.md)
 
@@ -62,18 +62,20 @@ The route is defined in [`pipeline/video-fabrica.json`](pipeline/video-fabrica.j
 ## Numbers, with their limits
 
 - **First full video:** ~US$41.8 in API-equivalent cost (range 37–47). The redesigned line is estimated at **~US$19** per video, based on that one video's measured stage costs and the assumptions listed in the analysis. → [docs/cost-analysis.md](docs/cost-analysis.md)
-- **Output:** 12 reels logged for a small wellness account (~160 followers). The best one reached 1,443 views in 5 hours with a 24% three-second drop-off. This is evidence of the method, not of reach. → [docs/results.md](docs/results.md)
+- **Output:** 12 reels logged for a small wellness account (~160 followers). The lowest early skip rate so far was 24% (1,443 views in the first 5 hours). This is evidence of the method, not of reach. → [docs/results.md](docs/results.md)
 - **Model A/B tests** (blind, judged by another model): 3 cases so far, Claude Opus 2, Claude Sonnet 1. Not enough to change anything; the rule is five cases minimum (tracked in [humanify](https://github.com/didierguisland/humanify)).
 
 ## Try the render engine
 
-Requirements: Node 20+.
+Requirements: Node 22.12+.
 
 ```bash
 npm install
 npm run render:example   # renders 3 s of the dessert reel to out/dessert-demo.mp4 (1080×1920)
 npm run sheet:example    # contact sheet of frames to out/hoja-demo.png
 ```
+
+The example includes no voice, so its HTML player falls back to silent playback; rendering works without voice.
 
 Every animation is a single HTML file with a seekable timeline (`window.seek(t)`); the engine captures each frame with Puppeteer and pipes it to ffmpeg.
 
