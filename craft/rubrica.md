@@ -1,0 +1,8 @@
+- La historia se entiende de corrido, sin pausar ni releer.
+- El gancho abre una duda concreta desde la primera frase y el primer cuadro.
+- El final contesta la duda del inicio con una imagen reconocible.
+- Las afirmaciones científicas tienen respaldo; las metáforas no convierten hipótesis en certezas.
+- Ningún elemento queda cortado, encimado o tapado por la interfaz de la red social.
+- Los subtítulos se leen a tamaño de teléfono, con contraste y tiempos suficientes.
+- La duración medida del audio y del video cumple el brief y sus tolerancias explícitas.
+- Lenguaje de cualquier señora y humor de complicidad, una metáfora que conserva la causa, un mundo propio, y cada frase con algo que se ve.

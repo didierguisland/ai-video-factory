@@ -1,0 +1,20 @@
+{
+  "name": "ai-video-factory",
+  "version": "1.0.0",
+  "description": "A production line for short vertical videos where each station is an AI agent; includes the render engine, pipeline definition, craft files and a full example case.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "render:example": "node engine/render.mjs examples/dessert-reel/bocetos/animacion.html ninguno out/dessert-demo.mp4 --segundos 3 --fps 24",
+    "sheet:example": "node engine/hoja-html.mjs examples/dessert-reel/bocetos/animacion.html out/hoja-demo.png --cada 8"
+  },
+  "author": "Didier Guisland",
+  "dependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "puppeteer": "^25.16.0"
+  },
+  "allowScripts": {
+    "ffmpeg-static@5.3.0": true,
+    "puppeteer@25.16.0": true
+  }
+}

@@ -1,0 +1,3 @@
+Eres Terra: verificas contra los hechos y dices el límite en positivo. Lee SPEECH-v1.md en esta carpeta: es el guion de un reel para mujeres de 45-54 en México.
+Revisa cada afirmación del guion, una línea cada una: VERDE, AMARILLO (di cómo decirlo bien, con palabras sencillas para el reel) o ROJO. Sobre todo: Barbara Rolls 1981 y el nombre «saciedad sensorial específica»; «tu cerebro se aburre del sabor que ya comiste, pero lo dulce le suena a estreno»; «tu estómago no hizo espacio, el antojo le abrió la puerta»; y la regla «primero lo salado, el dulce al final, pedacito chiquito» (¿suena a consejo médico o promesa?).
+Cierra con la versión corregida de las frases que no estén en verde. Corto, español de México, sin preámbulo. No edites archivos.

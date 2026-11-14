@@ -1,0 +1,3 @@
+1. **VERDE:** La idea está respaldada: lo que comiste suele perder atractivo frente a otro alimento de sabor distinto. [Rolls y cols., 1981](https://pure.psu.edu/en/publications/sensory-specific-satiety-in-man/).
+
+2. **AMARILLO:** La investigación respalda que el agrado puede bajar al comer, pero no que los primeros bocados siempre sean los más disfrutados. Versión: «Conforme lo comes, puede gustarte un poquito menos». [Rolls y cols., 1981](https://pure.psu.edu/en/publications/sensory-specific-satiety-in-man/).

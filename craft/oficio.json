@@ -1,0 +1,90 @@
+{
+  "nombre": "video",
+  "descripcion": "Video corto animado en HTML, de la idea al MP4.",
+  "herramientas": {
+    "render": [
+      "node",
+      "{base}/engine/render.mjs",
+      "{html}",
+      "{audio}",
+      "{mp4}"
+    ],
+    "hoja": [
+      "node",
+      "{base}/engine/hoja-html.mjs",
+      "{html}",
+      "{png}",
+      "--tiempos-de",
+      "04-STORYBOARD.md",
+      "--cada",
+      "2"
+    ],
+    "comprimir": [
+      "/usr/bin/python3",
+      "{base}/engine/copia-ligera.py",
+      "{mp4}",
+      "{ligero}",
+      "--max-mb",
+      "28"
+    ],
+    "hoja_estilo": [
+      "node",
+      "{base}/engine/hoja-html.mjs",
+      "{html}",
+      "{png}",
+      "--cada",
+      "1"
+    ],
+    "voz_texto": [
+      "/usr/bin/python3",
+      "{base}/engine/voz-preparar.py",
+      "texto",
+      "{carpeta}"
+    ],
+    "voz_preparar": [
+      "/usr/bin/python3",
+      "{base}/engine/voz-preparar.py",
+      "preparar",
+      "{carpeta}"
+    ],
+    "mundo_registrar": [
+      "/usr/bin/python3",
+      "{base}/engine/mundo-registrar.py",
+      "{carpeta}"
+    ]
+  },
+  "hechos_dados": [
+    "duracion_objetivo_s"
+  ],
+  "hechos": {
+    "ancho": {
+      "fijo": 1080
+    },
+    "alto": {
+      "fijo": 1920
+    },
+    "fps": {
+      "fijo": 30
+    },
+    "palabras_max_speech": {
+      "producto": [
+        "duracion_objetivo_s",
+        2.3
+      ],
+      "redondeo": "abajo"
+    },
+    "palabras_speech": {
+      "palabras": "03-SPEECH.md"
+    },
+    "duracion_voz_s": {
+      "duracion_audio": "voz.wav"
+    }
+  },
+  "verificar": {
+    "estilo.html": "node {base}/engine/hoja-html.mjs estilo.html _verificar/estilo.png --cada 1",
+    "reel.html": "node {base}/engine/hoja-html.mjs reel.html _verificar/hoja.png --tiempos-de 04-STORYBOARD.md --cada 2"
+  },
+  "libro_correcciones": "LIBRO-CORRECCIONES.md",
+    "rubrica": "rubrica.md",
+  "notas": "notas.md"
+}

@@ -1,0 +1,4 @@
+¿Por qué siempre cabe el postre? Dices «ya no puedo, estoy llenísima»… llega el pastel y, mágicamente, hay lugar. En 1981, la ciencia le puso nombre: saciedad sensorial específica. Lo que ya comiste se te antoja cada vez menos… pero un sabor distinto, como el dulce, llega como nuevo. No es que seas tragona: tu cerebro vio sabor nuevo y le abrió el VIP. Así que guárdalo para la posada: el postre al final y en pedacito, que con cada bocado se te antoja un poquito menos. Y mándaselo a la que dice «ya no puedo»… y luego pide pastel.
+
+Caption (crédito): Rolls, Rolls y Rowe (1981), «Sensory specific satiety in man».
+Orden (Didier, 10-nov): gancho → dato → VIP → guárdalo + regla → mándaselo. Lo guardable pasa al final (Muse lo quería a la mitad). Escaleta de Argon reordenada: momentos 1, 2, 3, 6, 4, 5, 7.

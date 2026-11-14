@@ -1,0 +1,1767 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>El huequito del postre · animación</title>
+<style>
+  html,body{margin:0;height:100%;background:#141416;color:#eee;font:15px -apple-system,"Helvetica Neue",sans-serif;overflow:hidden}
+  #escena{position:fixed;left:0;right:0;top:0;bottom:64px;display:flex;align-items:center;justify-content:center}
+  #cv{display:block;width:1080px;height:1920px;box-shadow:0 0 40px rgba(0,0,0,.5)}
+  #ctl{position:fixed;left:0;right:0;bottom:0;height:64px;display:flex;gap:14px;align-items:center;padding:0 18px;background:#1e1e21;box-sizing:border-box}
+  #ctl button{font:600 15px inherit;font-family:inherit;padding:9px 18px;border-radius:8px;border:0;background:#F1E6D2;color:#3A3A3C;cursor:pointer;min-width:118px}
+  #barra{flex:1;accent-color:#D98C7A}
+  #reloj{font-variant-numeric:tabular-nums;min-width:120px;text-align:right;opacity:.85}
+  body.render{overflow:visible} body.render #escena{position:static;display:block} body.render #ctl{display:none}
+  body.render #cv{box-shadow:none}
+</style>
+</head>
+<body>
+<div id="escena"><canvas id="cv" width="1080" height="1920"></canvas></div>
+<div id="ctl"><button id="play">▶ Reproducir</button><input id="barra" type="range" min="0" max="44.6" step="0.01" value="0"><span id="reloj">0.00 / 44.60 s</span></div>
+<audio id="voz" src="../voz.wav" preload="auto"></audio>
+<script type="text/plain" id="srt">
+1
+00:00:00,000 --> 00:00:00,400
+¿Por
+
+2
+00:00:00,400 --> 00:00:00,560
+qué
+
+3
+00:00:00,560 --> 00:00:01,000
+siempre
+
+4
+00:00:01,000 --> 00:00:01,320
+cabe
+
+5
+00:00:01,320 --> 00:00:01,600
+el
+
+6
+00:00:01,600 --> 00:00:02,100
+postre?
+
+7
+00:00:02,660 --> 00:00:03,300
+Dices
+
+8
+00:00:03,300 --> 00:00:03,780
+«ya
+
+9
+00:00:03,780 --> 00:00:03,920
+no
+
+10
+00:00:03,920 --> 00:00:04,180
+puedo,
+
+11
+00:00:04,420 --> 00:00:04,700
+estoy
+
+12
+00:00:04,700 --> 00:00:06,760
+llenísima»…
+
+13
+00:00:06,760 --> 00:00:07,020
+llega
+
+14
+00:00:07,020 --> 00:00:07,160
+el
+
+15
+00:00:07,160 --> 00:00:07,860
+pastel…
+
+16
+00:00:07,860 --> 00:00:08,360
+y,
+
+17
+00:00:08,360 --> 00:00:09,260
+mágicamente,
+
+18
+00:00:09,460 --> 00:00:09,980
+hay
+
+19
+00:00:09,980 --> 00:00:10,260
+lugar.
+
+20
+00:00:11,520 --> 00:00:12,160
+En
+
+21
+00:00:12,160 --> 00:00:13,380
+1981,
+
+22
+00:00:13,740 --> 00:00:13,940
+la
+
+23
+00:00:13,940 --> 00:00:14,260
+ciencia
+
+24
+00:00:14,260 --> 00:00:14,380
+le
+
+25
+00:00:14,380 --> 00:00:14,580
+puso
+
+26
+00:00:14,580 --> 00:00:14,840
+nombre.
+
+27
+00:00:15,540 --> 00:00:16,180
+Saciedad
+
+28
+00:00:16,180 --> 00:00:16,720
+sensorial
+
+29
+00:00:16,720 --> 00:00:17,800
+específica.
+
+30
+00:00:18,140 --> 00:00:18,640
+Lo
+
+31
+00:00:18,640 --> 00:00:18,720
+que
+
+32
+00:00:18,720 --> 00:00:18,840
+ya
+
+33
+00:00:18,840 --> 00:00:19,260
+comiste
+
+34
+00:00:19,260 --> 00:00:19,720
+se
+
+35
+00:00:19,720 --> 00:00:19,860
+te
+
+36
+00:00:19,860 --> 00:00:20,100
+antoja
+
+37
+00:00:20,100 --> 00:00:20,300
+cada
+
+38
+00:00:20,300 --> 00:00:20,460
+vez
+
+39
+00:00:20,460 --> 00:00:21,220
+menos…
+
+40
+00:00:21,220 --> 00:00:21,580
+pero
+
+41
+00:00:21,580 --> 00:00:21,760
+un
+
+42
+00:00:21,760 --> 00:00:22,020
+sabor
+
+43
+00:00:22,020 --> 00:00:22,660
+distinto,
+
+44
+00:00:22,880 --> 00:00:23,320
+como
+
+45
+00:00:23,320 --> 00:00:23,460
+el
+
+46
+00:00:23,460 --> 00:00:23,840
+dulce,
+
+47
+00:00:24,580 --> 00:00:24,900
+llega
+
+48
+00:00:24,900 --> 00:00:25,160
+como
+
+49
+00:00:25,160 --> 00:00:25,600
+nuevo.
+
+50
+00:00:26,100 --> 00:00:26,560
+No
+
+51
+00:00:26,560 --> 00:00:26,660
+es
+
+52
+00:00:26,660 --> 00:00:26,760
+que
+
+53
+00:00:26,760 --> 00:00:26,940
+seas
+
+54
+00:00:26,940 --> 00:00:27,360
+tragona,
+
+55
+00:00:27,500 --> 00:00:27,540
+eh.
+
+56
+00:00:28,060 --> 00:00:28,540
+Tu
+
+57
+00:00:28,540 --> 00:00:29,020
+cerebro
+
+58
+00:00:29,020 --> 00:00:29,240
+vio
+
+59
+00:00:29,240 --> 00:00:29,500
+sabor
+
+60
+00:00:29,500 --> 00:00:29,840
+nuevo,
+
+61
+00:00:29,840 --> 00:00:30,240
+y
+
+62
+00:00:30,240 --> 00:00:30,360
+le
+
+63
+00:00:30,360 --> 00:00:30,660
+abrió
+
+64
+00:00:30,660 --> 00:00:30,960
+el
+
+65
+00:00:30,960 --> 00:00:31,240
+VIP.
+
+66
+00:00:31,840 --> 00:00:32,440
+Así
+
+67
+00:00:32,440 --> 00:00:32,580
+que
+
+68
+00:00:32,580 --> 00:00:33,020
+guárdalo
+
+69
+00:00:33,020 --> 00:00:33,200
+para
+
+70
+00:00:33,200 --> 00:00:33,320
+la
+
+71
+00:00:33,320 --> 00:00:33,720
+posada,
+
+72
+00:00:34,020 --> 00:00:34,440
+el
+
+73
+00:00:34,440 --> 00:00:34,740
+postre
+
+74
+00:00:34,740 --> 00:00:34,860
+al
+
+75
+00:00:34,860 --> 00:00:35,280
+final
+
+76
+00:00:35,280 --> 00:00:35,680
+y
+
+77
+00:00:35,680 --> 00:00:35,780
+en
+
+78
+00:00:35,780 --> 00:00:36,240
+pedacito,
+
+79
+00:00:36,400 --> 00:00:36,860
+que
+
+80
+00:00:36,860 --> 00:00:37,080
+con
+
+81
+00:00:37,080 --> 00:00:37,280
+cada
+
+82
+00:00:37,280 --> 00:00:37,640
+bocado
+
+83
+00:00:37,640 --> 00:00:37,860
+se
+
+84
+00:00:37,860 --> 00:00:37,940
+te
+
+85
+00:00:37,940 --> 00:00:38,220
+antoja
+
+86
+00:00:38,220 --> 00:00:38,640
+un
+
+87
+00:00:38,640 --> 00:00:38,940
+poquito
+
+88
+00:00:38,940 --> 00:00:39,260
+menos.
+
+89
+00:00:39,600 --> 00:00:40,200
+Y
+
+90
+00:00:40,200 --> 00:00:40,720
+mándaselo
+
+91
+00:00:40,720 --> 00:00:40,840
+a
+
+92
+00:00:40,840 --> 00:00:40,920
+la
+
+93
+00:00:40,920 --> 00:00:41,060
+que
+
+94
+00:00:41,060 --> 00:00:41,300
+dice,
+
+95
+00:00:41,440 --> 00:00:41,780
+ya
+
+96
+00:00:41,780 --> 00:00:41,900
+no
+
+97
+00:00:41,900 --> 00:00:42,200
+puedo,
+
+98
+00:00:42,340 --> 00:00:42,640
+y
+
+99
+00:00:42,640 --> 00:00:42,900
+luego
+
+100
+00:00:42,900 --> 00:00:43,140
+pide
+
+101
+00:00:43,140 --> 00:00:43,480
+pastel.
+</script>
+<script src="../../../vendor/three.min.js"></script>
+<script>
+'use strict';
+// =====================================================================
+// Animación «El huequito del postre» (Example Brand) · sobre la estructura de boceto.html (audio ../voz.wav (not included), subtítulos de ../voz.srt).
+// Estructura: mundo 3D compartido + ESCENAS [{desde,hasta,montar(),pose(t)}]
+// + capa2D(ctx, escena, t) que dibuja stickers proyectando puntos 3D.
+// window.seek(t) es puro: el cuadro depende solo de t.
+// =====================================================================
+const W = 1080, H = 1920;
+window.DURATION = 44.6;
+
+const C = {
+  crema:'#F1E6D2', nogal:'#7A5638', vino:'#6E2A35', coral:'#D98C7A', salvia:'#A9B8A0', grafito:'#3A3A3C',
+  cromo:'#B9BCC0', dorado:'#C9A45C', betun:'#FBF5EA', cereza:'#A23B45', papel:'#FBF5EA', miel:'#F3C77E'
+};
+
+// ---------- utilidades ----------
+function prng(seed){ let s = seed>>>0; return ()=>{ s = (s*1664525 + 1013904223)>>>0; return s/4294967296; }; }
+const V = (x,y,z)=>new THREE.Vector3(x,y,z);
+
+// ---------- render 3D (canvas WebGL oculto) ----------
+const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, preserveDrawingBuffer:true});
+renderer.setPixelRatio(1);
+renderer.setSize(W, H, false);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.12;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const cv = document.getElementById('cv');
+const ctx = cv.getContext('2d');
+
+// =====================================================================
+// MUNDO 3D compartido: foyer de matinée, materiales y personajes
+// =====================================================================
+const mundo = (()=>{
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, W/H, 0.1, 200);
+
+  // Ambiente cálido de foyer para que el cromo refleje crema y miel, no negro
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  const envScene = new THREE.Scene();
+  envScene.add(new THREE.Mesh(new THREE.SphereGeometry(10,32,16), new THREE.MeshBasicMaterial({color:'#e6d7bf', side:THREE.BackSide})));
+  const tragaluz = new THREE.Mesh(new THREE.PlaneGeometry(10,6), new THREE.MeshBasicMaterial({color:'#fff3df'}));
+  tragaluz.position.set(-2,9,2); tragaluz.lookAt(0,0,0); envScene.add(tragaluz);
+  const pisoEnv = new THREE.Mesh(new THREE.PlaneGeometry(30,30), new THREE.MeshBasicMaterial({color:'#cdbfa6'}));
+  pisoEnv.rotation.x = -Math.PI/2; pisoEnv.position.y = -4; envScene.add(pisoEnv);
+  const vinoEnv = new THREE.Mesh(new THREE.PlaneGeometry(8,6), new THREE.MeshBasicMaterial({color:'#8a4a52'}));
+  vinoEnv.position.set(8,0,0); vinoEnv.lookAt(0,0,0); envScene.add(vinoEnv);
+  scene.environment = pmrem.fromScene(envScene, 0.04).texture;
+
+  // Tragaluces altos (~4200 K) + relleno generoso: tarde, nada de penumbra
+  const sol = new THREE.DirectionalLight(0xffd3a4, 2.3);
+  sol.position.set(-5, 14, 8);
+  sol.castShadow = true;
+  sol.shadow.mapSize.set(2048,2048);
+  const sc = sol.shadow.camera; sc.left=-12; sc.right=12; sc.top=12; sc.bottom=-12; sc.near=0.5; sc.far=50;
+  sol.shadow.bias = -0.0004; sol.shadow.normalBias = 0.03; sol.shadow.radius = 7;
+  scene.add(sol); scene.add(sol.target);
+  const relleno = new THREE.HemisphereLight(0xfff1de, 0xc9b79c, 1.15);
+  scene.add(relleno);
+  const frente = new THREE.DirectionalLight(0xfff0dc, 0.55); // relleno frontal suave (sin sombra)
+  frente.position.set(2, 4, 14); scene.add(frente);
+
+  const std = (color, rough=0.82, metal=0, extra={}) => new THREE.MeshStandardMaterial(Object.assign({color, roughness:rough, metalness:metal, envMapIntensity:0.6}, extra));
+  const M = {
+    pared: std('#F0E3CC', 0.95),
+    crema: std(C.crema, 0.9),
+    nogal: std(C.nogal, 0.75),
+    nogalClaro: std('#946A47', 0.75),
+    vino: std('#4A262C', 0.95),
+    vinoClaro: std('#5A2E36', 0.95),
+    coral: std(C.coral, 0.88),
+    salvia: std(C.salvia, 0.8),
+    grafito: std(C.grafito, 0.8),
+    cromo: std(C.cromo, 0.4, 0.6, {envMapIntensity:1.0}),
+    dorado: std(C.dorado, 0.55, 0.45, {envMapIntensity:0.9}),
+    blanco: std('#FAF6EE', 0.85),
+    hueso: std('#EFE6D6', 0.75),
+    almendra: std('#EAD3B5', 0.75),
+    bizcocho: std('#E8C283', 0.9),
+    betun: std(C.betun, 0.85),
+    cereza: std(C.cereza, 0.7),
+    piel: std('#E8BFA1', 0.85),
+    guisado: std('#8A5A3A', 0.9),
+    zanahoria: std('#D98C5A', 0.85),
+    miel: new THREE.MeshBasicMaterial({color:'#F7D08A'}),
+    cafe: std('#C9A27A', 0.9),
+  };
+
+  // Terrazo crema con motitas (textura de canvas, determinista)
+  const terrazoTex = (()=>{
+    const c = document.createElement('canvas'); c.width = c.height = 1024;
+    const g = c.getContext('2d'); const r = prng(1110);
+    g.fillStyle = '#EFE5D3'; g.fillRect(0,0,1024,1024);
+    const cols = ['#D98C7A','#A9B8A0','#C9A45C','#9A8F84','#C9BBA3','#ffffff','#6E2A35'];
+    for (let i=0;i<1700;i++){
+      g.fillStyle = cols[Math.floor(r()*cols.length)]; g.globalAlpha = 0.45 + r()*0.4;
+      const x=r()*1024, y=r()*1024, s=1.5+r()*5;
+      g.beginPath(); g.ellipse(x,y,s,s*(0.5+r()*0.5),r()*3,0,7); g.fill();
+    }
+    g.globalAlpha=1;
+    const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(9,9);
+    t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+    return t;
+  })();
+  M.terrazo = new THREE.MeshStandardMaterial({map:terrazoTex, roughness:0.75, envMapIntensity:0.4});
+  const terrazoTex2 = terrazoTex.clone(); terrazoTex2.repeat.set(3,1); terrazoTex2.needsUpdate = true;
+  M.terrazoBarra = new THREE.MeshStandardMaterial({map:terrazoTex2, roughness:0.75, envMapIntensity:0.4});
+
+  // ---------- geometrías boleadas ----------
+  function rrShape(w,h,r){
+    const s = new THREE.Shape(), x=-w/2, y=-h/2;
+    s.moveTo(x+r,y); s.lineTo(x+w-r,y); s.quadraticCurveTo(x+w,y,x+w,y+r);
+    s.lineTo(x+w,y+h-r); s.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+    s.lineTo(x+r,y+h); s.quadraticCurveTo(x,y+h,x,y+h-r);
+    s.lineTo(x,y+r); s.quadraticCurveTo(x,y,x+r,y); return s;
+  }
+  function rbox(w,h,d,r){
+    r = Math.min(r, w/2-0.002, h/2-0.002, d/2-0.002);
+    const iw=w-2*r, ih=h-2*r, cr=Math.max(0.0005, Math.min(r*0.9, iw/2-0.0005, ih/2-0.0005));
+    const g = new THREE.ExtrudeGeometry(rrShape(iw,ih,cr), {depth:Math.max(d-2*r,0.001), bevelEnabled:true, bevelThickness:r, bevelSize:r, bevelSegments:5, curveSegments:10});
+    g.center(); return g;
+  }
+  function lathe(pts, seg=72){ return new THREE.LatheGeometry(pts.map(p=>new THREE.Vector2(p[0],p[1])), seg); }
+  function rcylPts(r,h,b){
+    const p=[[0,0],[r-b,0]];
+    for(let i=1;i<=6;i++){ const a=-Math.PI/2+i/6*Math.PI/2; p.push([r-b+Math.cos(a)*b, b+Math.sin(a)*b]); }
+    for(let i=1;i<=6;i++){ const a=i/6*Math.PI/2; p.push([r-b+Math.cos(a)*b, h-b+Math.sin(a)*b]); }
+    p.push([0,h]); return p;
+  }
+  const rcyl = (r,h,b)=>lathe(rcylPts(r,h,b));
+  const caps = (r,l)=>new THREE.CapsuleGeometry(r,l,8,20);
+  function mk(geo, mat, cast=true, recv=true){ const m=new THREE.Mesh(geo,mat); m.castShadow=cast; m.receiveShadow=recv; return m; }
+  function en(obj,x,y,z){ obj.position.set(x,y,z); return obj; }
+
+  const todos = {};
+  function reg(nombre, obj){ todos[nombre]=obj; obj.name=nombre; scene.add(obj); return obj; }
+
+  // Piso y pared del foyer
+  const piso = reg('piso', mk(new THREE.PlaneGeometry(80,80), M.terrazo, false, true));
+  const pared = reg('pared', (()=>{
+    const g = new THREE.Group();
+    g.add(mk(new THREE.PlaneGeometry(120,80), M.pared, false, true));
+    const zoc = mk(rbox(120,0.9,0.12,0.04), M.nogalClaro, false, true); zoc.position.set(0,0.45,0.06); g.add(zoc);
+    const moldura = mk(rbox(120,0.08,0.1,0.03), M.dorado, false, true); moldura.position.set(0,0.94,0.07); g.add(moldura);
+    return g;
+  })());
+
+  // ---------- PASTEL (rebanada de tres capas) ----------
+  function capasPastel(L, w, corte=0, mordida=0, escalon=0){
+    const g = new THREE.Group();
+    const x0 = -L/2 + corte, wc = w*corte/L;
+    const forma = (cc)=>{ const a = -L/2 + cc, b = w*cc/L; const s = new THREE.Shape(); s.moveTo(a,0); s.lineTo(L/2,0); s.quadraticCurveTo(L/2+0.16, w/2, L/2, w); s.lineTo(a, b);
+      if (mordida) s.quadraticCurveTo(a+mordida, b*0.5, a, 0); s.closePath(); return s; };
+    const capa = (y, h, mat, inset=0, extra=0)=>{
+      const geo = new THREE.ExtrudeGeometry(forma(corte+extra), {depth:h, bevelEnabled:true, bevelThickness:0.035, bevelSize:0.035-inset, bevelSegments:4, curveSegments:16});
+      const m = mk(geo, mat); m.rotation.x = -Math.PI/2; m.position.y = y; g.add(m); return m;
+    };
+    // escalon: las capas de arriba ya se comieron más (se ve el «a medias» de frente)
+    const hs = 0.36, hc = 0.09; let y = 0;
+    capa(y, hs, M.bizcocho, 0.01); y += hs+0.03;
+    capa(y, hc, M.betun); y += hc+0.03;
+    capa(y, hs, M.bizcocho, 0.01); y += hs+0.03;
+    capa(y, hc, M.betun); y += hc+0.03;
+    capa(y, hs, M.bizcocho, 0.01, escalon); y += hs+0.03;
+    capa(y, 0.16, M.betun, 0, escalon); y += 0.16+0.04;
+    // betún sobre la espalda (orilla curva)
+    const espalda = mk(new THREE.CylinderGeometry(0.06,0.06,y,16), M.betun); espalda.position.set(L/2+0.09, y/2, -w/2); espalda.scale.set(1,1,w*6); g.add(espalda);
+    // rosetón y cereza
+    const roseton = mk(new THREE.SphereGeometry(0.17,24,16), M.betun); roseton.scale.set(1,0.75,1); roseton.position.set(L/2-0.28, y+0.06, -w/2); g.add(roseton);
+    const cereza = mk(new THREE.SphereGeometry(0.17,28,20), M.cereza); cereza.position.set(L/2-0.28, y+0.27, -w/2); g.add(cereza);
+    const tallo = mk(new THREE.CylinderGeometry(0.018,0.018,0.32,8), M.nogal); tallo.position.set(L/2-0.22, y+0.5, -w/2); tallo.rotation.z = -0.35; g.add(tallo);
+    cereza.userData.y0 = cereza.position.y; tallo.userData.y0 = tallo.position.y;
+    g.userData = {alto:y, cereza, tallo, L, w, x0};
+    return g;
+  }
+  function hacerPastel(){
+    const g = new THREE.Group();
+    const cuerpo = capasPastel(1.5, 0.75); cuerpo.position.y = 0.32; g.add(cuerpo);
+    const piernas = [];
+    for (const sx of [-0.25, 0.35]){
+      const p = new THREE.Group(); p.position.set(sx, 0.36, -0.2);
+      const pi = mk(caps(0.045, 0.26), M.grafito); pi.position.y = -0.17; p.add(pi);
+      const zap = mk(rbox(0.22,0.09,0.13,0.04), M.dorado); zap.position.set(0.04,-0.33,0); p.add(zap);
+      g.add(p); piernas.push(p);
+    }
+    g.userData = {cuerpo, piernas};
+    return g;
+  }
+  const pastel = reg('pastel', hacerPastel());
+  const pastelito = reg('pastelito', new THREE.Group()); // rebanada en platito, cambia de corte por escena
+  const cache = {};
+  function ponerPastelito(corte, mordida=0, escalon=0){
+    pastelito.clear();
+    const k = 'c'+corte+'m'+mordida+'e'+escalon; if (!cache[k]) cache[k] = capasPastel(1.5, 0.75, corte, mordida, escalon);
+    pastelito.add(cache[k]); pastelito.userData = cache[k].userData;
+  }
+
+  // ---------- CADENERO-CEREBRO ----------
+  function cabezaCerebro(){
+    const geo = new THREE.SphereGeometry(0.6, 128, 96);
+    const p = geo.attributes.position, v = new THREE.Vector3();
+    for (let i=0;i<p.count;i++){
+      v.fromBufferAttribute(p,i); const n = v.clone().normalize();
+      let d = 0.03*Math.sin(11*n.x + 4*Math.sin(6*n.y))*Math.cos(9*n.y + 3*n.z) + 0.018*Math.sin(17*n.z + 5*n.x + 2*n.y);
+      const surco = Math.exp(-(n.x*n.x)/0.004) * Math.max(0, Math.min(1, (n.y+0.1)*2.5)) * Math.max(0, Math.min(1,(0.75-n.z)*2));
+      d -= 0.09*surco;
+      const cara = Math.max(0, n.z-0.55)*1.4; d *= (1-Math.min(1,cara)); // frente lisa para la cara
+      v.copy(n).multiplyScalar(0.6*(1+d)); p.setXYZ(i, v.x, v.y, v.z);
+    }
+    geo.computeVertexNormals();
+    const m = mk(geo, M.coral); m.scale.set(1.08, 0.88, 1.0);
+    return m;
+  }
+  function brazo(lado){
+    const g = new THREE.Group(); // pivote en hombro
+    const manga = mk(caps(0.15, 0.62), M.grafito); manga.position.y = -0.42; g.add(manga);
+    const puno = mk(new THREE.CylinderGeometry(0.15,0.15,0.08,20), M.blanco); puno.position.y = -0.86; g.add(puno);
+    const mano = new THREE.Group(); mano.position.y = -0.98; g.add(mano);
+    const palma = mk(new THREE.SphereGeometry(0.17,24,16), M.blanco); palma.scale.set(1,1.15,0.7); mano.add(palma);
+    const pulgar = mk(caps(0.055,0.12), M.blanco); pulgar.position.set(0.15*lado,0.02,0.05); pulgar.rotation.z = -0.7*lado; mano.add(pulgar);
+    const dedos = mk(caps(0.075,0.12), M.blanco); dedos.scale.set(1.9,1,0.85); dedos.position.set(0,-0.16,0); mano.add(dedos);
+    g.userData = {mano};
+    return g;
+  }
+  function hacerCadenero(){
+    const g = new THREE.Group();
+    for (const sx of [-0.22, 0.22]){
+      const pi = mk(caps(0.15, 0.75), M.grafito); pi.position.set(sx, 0.52, 0); g.add(pi);
+      const za = mk(rbox(0.32,0.16,0.48,0.07), M.grafito); za.position.set(sx, 0.08, 0.08); g.add(za);
+    }
+    const arriba = new THREE.Group(); arriba.position.y = 0.95; g.add(arriba);
+    const torso = mk(lathe([[0,0],[0.42,0],[0.5,0.15],[0.55,0.7],[0.62,1.12],[0.55,1.3],[0.3,1.4],[0,1.42]]), M.grafito);
+    torso.scale.set(1,1,0.78); arriba.add(torso);
+    const camisa = mk(rbox(0.36,0.85,0.1,0.04), M.blanco); camisa.position.set(0,0.9,0.4); camisa.rotation.x = -0.12; arriba.add(camisa);
+    const cuello = mk(new THREE.CylinderGeometry(0.24,0.28,0.18,24), M.blanco); cuello.position.y = 1.46; arriba.add(cuello);
+    const cabeza = cabezaCerebro(); cabeza.position.set(0, 1.98, 0.02); arriba.add(cabeza);
+    const bI = brazo(-1); bI.position.set(-0.62, 1.22, 0); arriba.add(bI);
+    const bD = brazo(1); bD.position.set(0.62, 1.22, 0); arriba.add(bD);
+    g.userData = {arriba, cabeza, bI, bD};
+    return g;
+  }
+  const cadenero = reg('cadenero', hacerCadenero());
+  function poseCadenero(o={}){
+    const u = cadenero.userData;
+    u.arriba.rotation.set(o.inclina||0, 0, o.ladea||0);
+    u.bI.rotation.set(o.bIx||0, 0, o.bIz!=null?o.bIz:-0.12);
+    u.bD.rotation.set(o.bDx||0, 0, o.bDz!=null?o.bDz:0.12);
+    u.bI.userData.mano.rotation.set(0,o.mIy||0,o.mIz||0);
+    u.bD.userData.mano.rotation.set(0,o.mDy||0,o.mDz||0);
+  }
+
+  // ---------- MANO DE LA SEÑORA ----------
+  function hacerMano(){
+    const g = new THREE.Group(); // origen en la muñeca, dedos hacia +x, dorso +y, pulgar hacia +z
+    const ante = mk(caps(0.2, 1.6), M.piel); ante.rotation.z = Math.PI/2; ante.position.x = -1.0; g.add(ante);
+    const manga = mk(new THREE.CylinderGeometry(0.29,0.29,0.9,32), M.salvia); manga.rotation.z = Math.PI/2; manga.position.x = -1.75; g.add(manga);
+    const pulsera = mk(new THREE.TorusGeometry(0.23, 0.05, 16, 48), M.cromo); pulsera.rotation.y = Math.PI/2; pulsera.position.x = -0.15; g.add(pulsera);
+    const palma = mk(rbox(0.62, 0.22, 0.6, 0.1), M.piel); palma.position.x = 0.3; g.add(palma);
+    const dedos = [];
+    const zs = [-0.21, -0.07, 0.07, 0.2], largos = [0.26, 0.34, 0.36, 0.32];
+    zs.forEach((z,i)=>{
+      const k = new THREE.Group(); k.position.set(0.6, 0, -z); g.add(k);
+      const f1 = mk(caps(0.062, largos[i]*0.55), M.piel); f1.rotation.z = Math.PI/2; f1.position.x = largos[i]*0.3; k.add(f1);
+      const j = new THREE.Group(); j.position.x = largos[i]*0.6; k.add(j);
+      const f2 = mk(caps(0.058, largos[i]*0.4), M.piel); f2.rotation.z = Math.PI/2; f2.position.x = largos[i]*0.24; j.add(f2);
+      const una = mk(new THREE.SphereGeometry(0.05,12,8), M.coral); una.scale.set(1.2,0.4,0.9); una.position.set(largos[i]*0.4, 0.04, 0); j.add(una);
+      dedos.push({k, j});
+    });
+    const pk = new THREE.Group(); pk.position.set(0.18, -0.02, 0.3); g.add(pk);
+    const pu = mk(caps(0.07, 0.24), M.piel); pu.rotation.z = Math.PI/2; pu.position.x = 0.16; pk.add(pu);
+    g.userData = {dedos, pk};
+    return g;
+  }
+  const mano = reg('mano', hacerMano());
+  function poseMano(curl1, curl2, abre=0, pulgar=[0.5,0.3]){
+    for (const [i,d] of mano.userData.dedos.entries()){ d.k.rotation.set(0, (i-1.5)*abre, -curl1); d.j.rotation.set(0,0,-curl2); }
+    mano.userData.pk.rotation.set(0, -pulgar[0], -pulgar[1]);
+  }
+
+  // ---------- SILLA DE NOGAL ----------
+  const silla = reg('silla', (()=>{
+    const g = new THREE.Group();
+    const resp = mk(rbox(2.3, 3.0, 0.28, 0.12), M.nogal); resp.position.set(0, 2.6, -0.9); g.add(resp);
+    const coj = mk(rbox(1.85, 2.4, 0.16, 0.12), M.vinoClaro); coj.position.set(0, 2.65, -0.72); g.add(coj);
+    for (let i=0;i<3;i++) for (let j=0;j<2;j++){ const b = mk(new THREE.SphereGeometry(0.05,12,8), M.dorado); b.position.set(-0.55+i*0.55, 2.2+j*0.9, -0.63); g.add(b); }
+    const brazo = mk(rbox(0.42, 0.26, 2.2, 0.1), M.nogal); brazo.position.set(1.0, 1.9, 0.1); g.add(brazo);
+    const poste = mk(rbox(0.22, 1.2, 0.22, 0.08), M.nogal); poste.position.set(1.0, 1.2, 0.95); g.add(poste);
+    const asiento = mk(rbox(2.1, 0.5, 2.0, 0.15), M.vinoClaro); asiento.position.set(0, 1.05, 0.1); g.add(asiento);
+    return g;
+  })());
+
+  // ---------- TENEDOR, CUCHARITA ----------
+  const tenedor = reg('tenedor', (()=>{
+    const g = new THREE.Group(); // a lo largo de +y, puntas arriba
+    const mango = mk(rbox(0.1, 1.2, 0.04, 0.02), M.cromo); mango.position.y = 0.6; g.add(mango);
+    const cab = mk(rbox(0.3, 0.2, 0.04, 0.02), M.cromo); cab.position.y = 1.28; g.add(cab);
+    for (let i=0;i<4;i++){ const d = mk(rbox(0.05, 0.36, 0.035, 0.017), M.cromo); d.position.set(-0.11+i*0.073, 1.52, 0); g.add(d); }
+    return g;
+  })());
+  const cucharita = reg('cucharita', (()=>{
+    const g = new THREE.Group(); // mango hacia -x, cuenco en el origen
+    const cu = mk(new THREE.SphereGeometry(0.17, 32, 16, 0, Math.PI*2, Math.PI/2, Math.PI/2), M.cromo);
+    cu.material = M.cromo.clone(); cu.material.side = THREE.DoubleSide; cu.scale.set(1.45,0.4,1); g.add(cu);
+    const mango = mk(rbox(1.05, 0.05, 0.09, 0.02), M.cromo); mango.position.set(-0.75, 0.04, 0); mango.rotation.z = -0.1; g.add(mango);
+    const bocado = capasPastel(1.5, 0.75); // punta chica
+    bocado.scale.setScalar(0.22); bocado.position.set(0.06, -0.01, 0.05); bocado.rotation.y = 0.4; g.add(bocado);
+    bocado.children.slice(-3).forEach(m=>m.visible=false); // sin cereza ni rosetón
+    g.userData = {bocado};
+    return g;
+  })());
+
+  // ---------- PLATOS, CAMPANA, BARRA ----------
+  const platito = reg('platito', mk(lathe([[0,0],[0.62,0],[0.68,0.05],[1.12,0.14],[1.18,0.2],[1.12,0.21],[0.66,0.1],[0,0.1]]), M.almendra));
+  const platoPostre = reg('platoPostre', mk(lathe([[0,0],[0.7,0],[0.76,0.05],[1.3,0.14],[1.36,0.2],[1.3,0.21],[0.74,0.1],[0,0.1]]), M.blanco));
+  const campana = reg('campana', (()=>{
+    const g = new THREE.Group();
+    const pts = []; for (let i=0;i<=24;i++){ const a=i/24*Math.PI/2; pts.push([1.45*Math.cos(a), 1.15*Math.sin(a)]); }
+    const dom = mk(lathe(pts.reverse().concat([[1.45,0],[1.5,-0.02],[1.5,0.04]]).reverse()), M.cromo);
+    dom.material = M.cromo.clone(); dom.material.side = THREE.DoubleSide; g.add(dom);
+    const perilla = mk(new THREE.SphereGeometry(0.16,24,16), M.cromo); perilla.position.y = 1.22; g.add(perilla);
+    const aro = mk(new THREE.TorusGeometry(1.48,0.04,12,64), M.cromo); aro.rotation.x = Math.PI/2; g.add(aro);
+    return g;
+  })());
+  const barra = reg('barra', (()=>{
+    const g = new THREE.Group();
+    const tapa = mk(rbox(14, 0.28, 3.2, 0.1), M.terrazoBarra); tapa.position.y = -0.14; g.add(tapa);
+    const frente = mk(rbox(13.6, 3.0, 2.8, 0.1), M.nogal); frente.position.set(0,-1.78,-0.1); g.add(frente);
+    const tira = mk(rbox(13.7, 0.08, 0.1, 0.03), M.dorado); tira.position.set(0,-0.42,1.32); g.add(tira);
+    return g;
+  })());
+  const platoHondo = reg('platoHondo', (()=>{
+    const g = new THREE.Group();
+    const b = mk(lathe([[0,0],[0.5,0],[0.56,0.04],[0.9,0.32],[1.08,0.55],[1.12,0.6],[1.05,0.6],[0.85,0.38],[0.5,0.14],[0,0.14]]), M.hueso); g.add(b);
+    const aro = mk(new THREE.TorusGeometry(1.1, 0.045, 12, 64), M.salvia); aro.rotation.x = Math.PI/2; aro.position.y = 0.6; g.add(aro);
+    const gu = mk(new THREE.SphereGeometry(0.95, 48, 16, 0, Math.PI*2, 0, Math.PI/2), M.guisado); gu.scale.set(1,0.32,1); gu.position.y = 0.38; g.add(gu);
+    const r = prng(77);
+    for (let i=0;i<9;i++){ const a=r()*6.28, d=0.2+r()*0.55; const pz = mk(rbox(0.16,0.12,0.16,0.04), i%3? M.zanahoria : M.salvia); pz.position.set(Math.cos(a)*d, 0.62+r()*0.05, Math.sin(a)*d); pz.rotation.set(r(),r(),r()); g.add(pz); }
+    for (const sx of [-0.4, 0.4]){ const p = mk(caps(0.05,0.25), M.grafito); p.position.set(sx,-0.15,0.1); g.add(p);
+      const z = mk(rbox(0.24,0.09,0.14,0.04), M.grafito); z.position.set(sx+0.04,-0.32,0.12); g.add(z); }
+    return g;
+  })());
+
+  // ---------- TACITA ----------
+  const tacita = reg('tacita', (()=>{
+    const g = new THREE.Group();
+    const cuerpo = mk(lathe([[0,0],[0.3,0],[0.36,0.04],[0.44,0.32],[0.5,0.6],[0.5,0.62],[0,0.62]]), M.blanco); cuerpo.position.y = 0.3; g.add(cuerpo);
+    const borde = mk(new THREE.TorusGeometry(0.5, 0.03, 10, 48), M.dorado); borde.rotation.x = Math.PI/2; borde.position.y = 0.92; g.add(borde);
+    const espuma = mk(new THREE.CylinderGeometry(0.47,0.47,0.04,40), M.cafe); espuma.position.y = 0.92; g.add(espuma);
+    const asa = mk(new THREE.TorusGeometry(0.17, 0.045, 12, 32, Math.PI*1.3), M.blanco); asa.position.set(0.55, 0.68, 0); asa.rotation.z = -Math.PI*0.65; g.add(asa);
+    const piernas = [];
+    for (const sx of [-0.15, 0.15]){ const p = new THREE.Group(); p.position.set(sx, 0.32, 0); g.add(p);
+      const pi = mk(caps(0.04,0.16), M.grafito); pi.position.y = -0.12; p.add(pi);
+      const z = mk(rbox(0.2,0.08,0.12,0.035), M.dorado); z.position.set(0.05,-0.27,0); p.add(z); piernas.push(p); }
+    g.userData = {piernas, asa};
+    return g;
+  })());
+
+  // ---------- PUERTAS, CORDÓN, POSTES ----------
+  function hacerPuerta(){ // hoja acolchada (pivote en la bisagra izquierda)
+    const g = new THREE.Group();
+    const base = mk(rbox(2.2, 4.0, 0.2, 0.08), M.nogal); base.position.set(1.1, 2.0, 0); g.add(base);
+    for (let i=0;i<3;i++) for (let j=0;j<4;j++){
+      const p = mk(rbox(0.62, 0.86, 0.18, 0.16), M.vinoClaro); p.position.set(0.42+i*0.68, 0.62+j*0.92, 0.12); g.add(p);
+    }
+    for (let i=0;i<4;i++) for (let j=0;j<5;j++){ if ((i===0||i===3)&&(j===0||j===4)) continue;
+      const b = mk(new THREE.SphereGeometry(0.045,12,8), M.dorado); b.position.set(0.08+i*0.68, 0.16+j*0.92, 0.2); g.add(b); }
+    const jal = mk(new THREE.SphereGeometry(0.09,16,12), M.dorado); jal.position.set(1.98, 2.0, 0.3); g.add(jal);
+    return g;
+  }
+  const puerta = reg('puerta', (()=>{
+    const g = new THREE.Group();
+    const marco = mk(rbox(5.2, 5.0, 0.3, 0.1), M.nogal); marco.position.set(0, 2.5, -0.2); g.add(marco);
+    const hI = hacerPuerta(); hI.position.set(-2.2, 0, 0); g.add(hI);
+    const hD = hacerPuerta(); hD.scale.x = -1; hD.position.set(2.2, 0, 0); g.add(hD);
+    const placa = mk(rbox(1.9, 0.7, 0.08, 0.06), M.blanco); placa.position.set(0, 3.0, 0.42); g.add(placa);
+    g.userData = {hI, hD, placa};
+    return g;
+  })());
+  const puertaVIP = reg('puertaVIP', (()=>{
+    const g = new THREE.Group();
+    const luz = mk(new THREE.PlaneGeometry(2.6, 4.2), M.miel, false, false); luz.position.set(0, 2.1, -0.05); g.add(luz);
+    for (const sx of [-1.45, 1.45]){ const j = mk(rbox(0.32, 4.6, 0.5, 0.1), M.nogal); j.position.set(sx, 2.3, 0); g.add(j); }
+    const din = mk(rbox(3.3, 0.4, 0.55, 0.1), M.nogal); din.position.set(0, 4.6, 0); g.add(din);
+    const letr = mk(rbox(2.3, 0.34, 0.08, 0.05), M.dorado); letr.position.set(0, 4.6, 0.3); g.add(letr);
+    const hoja = hacerPuerta(); hoja.position.set(-1.3, 0, 0.05); hoja.scale.set(1.18,1.05,1); hoja.rotation.y = 1.25; g.add(hoja);
+    g.userData = {luz, letr, hoja};
+    return g;
+  })());
+  function poste(){ const g = new THREE.Group();
+    g.add(mk(rcyl(0.36, 0.1, 0.04), M.cromo));
+    const tubo = mk(new THREE.CylinderGeometry(0.06,0.06,1.9,20), M.cromo); tubo.position.y = 1.0; g.add(tubo);
+    const bola = mk(new THREE.SphereGeometry(0.13,24,16), M.cromo); bola.position.y = 2.0; g.add(bola);
+    return g; }
+  const posteA = reg('posteA', poste());
+  const posteB = reg('posteB', poste());
+  const cordon = reg('cordon', new THREE.Group());
+  function ponerCordon(pts){
+    cordon.children.forEach(m=>m.geometry.dispose()); cordon.clear();
+    const curva = new THREE.CatmullRomCurve3(pts.map(p=>V(...p)));
+    cordon.add(mk(new THREE.TubeGeometry(curva, 64, 0.075, 12, false), M.vinoClaro));
+    for (const p of [pts[0], pts[pts.length-1]]){ const b = mk(new THREE.SphereGeometry(0.1,16,12), M.cromo); b.position.set(...p); cordon.add(b); }
+  }
+
+  // ---------- TELONES de terciopelo (a los lados) ----------
+  const telones = reg('telones', (()=>{
+    const g = new THREE.Group();
+    for (const lado of [-1,1]) for (let i=0;i<6;i++){
+      const pl = mk(new THREE.CylinderGeometry(0.2,0.24,7,20), M.vinoClaro); pl.position.set(lado*(2.6+i*0.3), 3.5, -i*0.05); g.add(pl); }
+    for (const lado of [-1,1]){ const am = mk(new THREE.TorusGeometry(0.4,0.07,10,24), M.dorado); am.position.set(lado*2.55, 2.2, 0.3); g.add(am); }
+    return g;
+  })());
+
+  const telonFondo = reg('telonFondo', (()=>{ // telón vino mate cerrado, de lado a lado
+    const g = new THREE.Group();
+    for (let i=0;i<46;i++){ const pl = mk(new THREE.CylinderGeometry(0.21,0.25,10,20), M.vinoClaro, false, true); pl.position.set(-8.1+i*0.36, 5, (i%2)*0.12); g.add(pl); }
+    const fleco = mk(rbox(17, 0.12, 0.2, 0.05), M.dorado, false, true); fleco.position.set(0, 0.25, 0.3); g.add(fleco);
+    return g;
+  })());
+
+  // ---------- CORTINA METÁLICA ----------
+  const cortina = reg('cortina', (()=>{
+    const g = new THREE.Group();
+    const caja = mk(rbox(4.6, 0.6, 0.7, 0.12), M.nogal); caja.position.set(0, 4.6, 0); g.add(caja);
+    for (const sx of [-2.15, 2.15]){ const r = mk(rbox(0.22, 4.4, 0.36, 0.06), M.cromo); r.position.set(sx, 2.2, 0); g.add(r); }
+    const lamas = [];
+    for (let i=0;i<14;i++){ const l = mk(rbox(4.1, 0.3, 0.12, 0.05), M.vinoClaro); l.position.set(0, 0.17+i*0.3, 0); g.add(l); lamas.push(l); }
+    const pie = mk(rbox(4.2, 0.12, 0.2, 0.04), M.cromo); pie.position.set(0, 0.08, 0.04); g.add(pie);
+    g.userData = {lamas, pie};
+    return g;
+  })());
+
+  // ---------- ATRIL CON INTERRUPTOR ----------
+  const atril = reg('atril', (()=>{
+    const g = new THREE.Group();
+    const cu = mk(rbox(1.9, 2.4, 1.2, 0.14), M.nogal); cu.position.y = 1.2; g.add(cu);
+    const tira = mk(rbox(1.95, 0.09, 1.25, 0.03), M.dorado); tira.position.y = 0.4; g.add(tira);
+    const tapa = new THREE.Group(); tapa.position.set(0, 2.55, 0); tapa.rotation.x = 0.5; g.add(tapa);
+    tapa.add(mk(rbox(2.3, 0.14, 1.6, 0.06), M.nogalClaro));
+    const placa = mk(rbox(1.0, 0.08, 1.35, 0.05), M.cromo); placa.position.y = 0.1; tapa.add(placa);
+    const pal = new THREE.Group(); pal.position.set(0, 0.14, 0); tapa.add(pal);
+    const base = mk(new THREE.SphereGeometry(0.16,24,12,0,Math.PI*2,0,Math.PI/2), M.grafito); pal.add(base);
+    const vara = mk(new THREE.CylinderGeometry(0.06,0.075,0.75,20), M.cromo); vara.position.y = 0.37; pal.add(vara);
+    const bola = mk(new THREE.SphereGeometry(0.13,24,16), M.dorado); bola.position.y = 0.78; pal.add(bola);
+    g.userData = {tapa, pal, bola};
+    return g;
+  })());
+  const guante = reg('guante', (()=>{ // guante suelto con puño de esmoquin, dedo índice estirado hacia +y
+    const g = new THREE.Group();
+    const manga = mk(new THREE.CylinderGeometry(0.2,0.2,1.6,24), M.grafito); manga.position.y = -1.15; g.add(manga);
+    const puno = mk(new THREE.CylinderGeometry(0.2,0.2,0.12,24), M.blanco); puno.position.y = -0.33; g.add(puno);
+    const palma = mk(new THREE.SphereGeometry(0.22,24,16), M.blanco); palma.scale.set(1,0.95,0.75); g.add(palma);
+    const ind = mk(caps(0.07,0.32), M.blanco); ind.position.set(0.04,0.33,0.02); g.add(ind);
+    const pul = mk(caps(0.065,0.14), M.blanco); pul.position.set(0.2,0.1,0.06); pul.rotation.z = -0.8; g.add(pul);
+    return g;
+  })());
+
+  // ---------- MEDIDOR RETRO ----------
+  const medidor = reg('medidor', (()=>{
+    const g = new THREE.Group();
+    const caja = mk(rbox(1.9, 1.6, 0.7, 0.18), M.nogal); caja.position.y = 0.8; g.add(caja);
+    const cara = mk(rbox(1.55, 1.1, 0.06, 0.08), M.blanco); cara.position.set(0, 0.95, 0.36); g.add(cara);
+    const bisel = mk(new THREE.TorusGeometry(0.02,0.02,4,4), M.cromo); bisel.visible = false; g.add(bisel);
+    for (const sx of [-0.55, 0.55]){ const p = mk(rcyl(0.12, 0.12, 0.04), M.grafito); p.position.set(sx, -0.1, 0.1); g.add(p); }
+    return g;
+  })());
+
+  // ---------- utilidades de cámara / proyección ----------
+  function reset(){
+    for (const k in todos){ const o=todos[k]; o.visible=false; o.position.set(0,0,0); o.rotation.set(0,0,0); o.scale.set(1,1,1); }
+    piso.visible = true; piso.rotation.x = -Math.PI/2; pared.visible = true;
+    camera.clearViewOffset();
+    sol.position.set(-5,14,8); sol.target.position.set(0,0,0); sol.intensity = 2.3; sol.color.set(0xffd3a4);
+    relleno.intensity = 1.15; frente.intensity = 0.55;
+    renderer.toneMappingExposure = 1.12;
+    poseCadenero({}); poseMano(0.2, 0.2); cadenero.userData.bI.visible = true;
+    pastel.userData.cuerpo.rotation.set(0,0,0);
+    for (const p of pastel.userData.piernas) p.rotation.set(0,0,0);
+    for (const p of tacita.userData.piernas) p.rotation.set(0,0,0);
+    atril.userData.pal.rotation.set(0,0,0);
+    cadenero.userData.cabeza.rotation.set(0,0,0); pastel.userData.cuerpo.position.y = 0.32;
+    puertaVIP.userData.hoja.rotation.y = 1.25;
+    cortina.userData.lamas.forEach((l,i)=>{ l.position.y = 0.17+i*0.3; }); cortina.userData.pie.position.y = 0.08;
+  }
+  function ver(...nombres){ for (const n of nombres) todos[n].visible = true; }
+  function cam(fov, pos, mira){
+    camera.fov = fov; camera.aspect = W/H; camera.position.copy(pos); camera.up.set(0,1,0); camera.lookAt(mira);
+    camera.clearViewOffset(); camera.updateProjectionMatrix(); camera.updateMatrixWorld();
+  }
+  function proj(v){ const p = v.clone().project(camera); return {x:(p.x+1)/2*W, y:(1-p.y)/2*H}; }
+  function local(obj, v){ obj.updateMatrixWorld(true); return obj.localToWorld(v.clone()); }
+  // px por unidad en un punto local de un objeto (para escalar stickers)
+  function escala(obj, v, eje=V(1,0,0)){ const a = proj(local(obj,v)), b = proj(local(obj, v.clone().add(eje))); return Math.hypot(b.x-a.x, b.y-a.y); }
+
+  return {scene, camera, sol, relleno, frente, M, todos, reset, ver, cam, proj, local, escala, poseCadenero, poseMano, ponerCordon, ponerPastelito};
+})();
+
+// =====================================================================
+// CAPA 2D: herramientas de sticker
+// =====================================================================
+const FUENTE = '"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif';
+const LW = 7;
+function fuente(px, peso=800){ return `${peso} ${px}px ${FUENTE}`; }
+function rr(c,x,y,w,h,r){ c.beginPath(); c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r); c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); }
+function trazo(c, w=LW, col=C.grafito){ c.lineWidth=w; c.strokeStyle=col; c.lineCap='round'; c.lineJoin='round'; c.stroke(); }
+
+// Texto grande: lineas = [[ [texto,color], ... ], ...], desde y=280
+function rotulo(c, lineas, y=280, size=100, pastilla=true){
+  c.save(); c.font = fuente(size); c.textBaseline='alphabetic'; c.textAlign='left';
+  const anchoMax = Math.max(...lineas.map(segs=>segs.reduce((a,s)=>a+c.measureText(s[0]).width,0)));
+  if (anchoMax > W-128-60){ size = Math.floor(size*(W-128-60)/anchoMax); c.font = fuente(size); }
+  lineas.forEach((segs, i)=>{
+    const ancho = segs.reduce((a,s)=>a+c.measureText(s[0]).width,0);
+    const x0 = W/2 - ancho/2, yb = y + size*0.86 + i*size*1.12;
+    if (pastilla){ c.fillStyle = 'rgba(241,230,210,0.95)'; rr(c, x0-30, yb-size*0.86, ancho+60, size*1.08, 26); c.fill(); }
+    let x = x0;
+    for (const [t,col] of segs){ c.fillStyle = col||C.grafito; c.fillText(t, x, yb); x += c.measureText(t).width; }
+  });
+  c.restore();
+}
+function marca(c, clara=false){
+  c.save(); c.font = `italic 600 70px ${FUENTE}`; c.textAlign='center'; c.textBaseline='alphabetic';
+  c.fillStyle= clara ? 'rgba(251,245,234,0.88)' : 'rgba(58,58,60,0.62)'; c.fillText('Example Brand', 540, 248); c.restore();
+}
+function destello(c,x,y,s,col='#FFFFFF',borde=true){
+  c.save(); c.translate(x,y); c.scale(s,s); c.beginPath();
+  c.moveTo(0,-30); c.quadraticCurveTo(4,-4,30,0); c.quadraticCurveTo(4,4,0,30); c.quadraticCurveTo(-4,4,-30,0); c.quadraticCurveTo(-4,-4,0,-30);
+  c.fillStyle=col; c.fill(); if(borde) trazo(c, LW*0.7/s); c.restore();
+}
+function lineasCineticas(c, x, y, ang, n=3, largo=90, sep=34){
+  c.save(); c.translate(x,y); c.rotate(ang);
+  for(let i=0;i<n;i++){ const o=(i-(n-1)/2)*sep, l=largo*(i===(n-1)/2||n===2?1:0.7); c.beginPath(); c.moveTo(0,o); c.lineTo(l,o); trazo(c); }
+  c.restore();
+}
+function rayitas(c, x, y, r, angs, largo=40, w=LW){
+  for (const a of angs){ c.beginPath(); c.moveTo(x+Math.cos(a)*r, y+Math.sin(a)*r); c.lineTo(x+Math.cos(a)*(r+largo), y+Math.sin(a)*(r+largo)); trazo(c, w); }
+}
+function brillo(c, x, y, r, col='rgba(255,236,190,0.75)'){ // halo cálido detrás del protagonista
+  const g = c.createRadialGradient(x,y,0,x,y,r); g.addColorStop(0,col); g.addColorStop(0.55,'rgba(255,232,180,0.32)'); g.addColorStop(1,'rgba(255,232,180,0)');
+  c.fillStyle = g; c.fillRect(x-r,y-r,2*r,2*r);
+}
+function rayosLuz(c, alfa=0.16){ // haces de los tragaluces, desde arriba a la izquierda
+  c.save(); c.globalCompositeOperation='screen';
+  for (const [x0,w] of [[60,150],[330,110],[560,170],[860,90]]){
+    const g = c.createLinearGradient(0,0,0,H); g.addColorStop(0,`rgba(255,238,205,${alfa})`); g.addColorStop(1,'rgba(255,238,205,0)');
+    c.fillStyle = g; c.beginPath(); c.moveTo(x0,0); c.lineTo(x0+w,0); c.lineTo(x0+w+520,H*0.75); c.lineTo(x0+520,H*0.75); c.closePath(); c.fill();
+  }
+  c.restore();
+}
+// --- caras ---
+function ojo(c, x, y, r, o={}){
+  const [mx,my] = o.mira||[0,0];
+  c.save(); c.beginPath(); c.ellipse(x,y,r,r*(o.alto||1.15),0,0,7); c.fillStyle='#FFFDF8'; c.fill(); c.clip();
+  c.beginPath(); c.arc(x+mx*r*0.45, y+my*r*0.45, r*0.6, 0, 7); c.fillStyle=C.grafito; c.fill();
+  c.beginPath(); c.arc(x+mx*r*0.45-r*0.2, y+my*r*0.45-r*0.22, r*0.2, 0, 7); c.fillStyle='#fff'; c.fill();
+  if (o.parpado){ c.fillStyle = o.colParpado||C.coral; c.fillRect(x-r*1.2, y-r*1.4, r*2.4, r*1.4*o.parpado*1.6); c.beginPath(); c.moveTo(x-r*1.2,y-r*1.4+r*2.24*o.parpado); c.lineTo(x+r*1.2,y-r*1.4+r*2.24*o.parpado); trazo(c, r*0.16); }
+  c.restore();
+  c.beginPath(); c.ellipse(x,y,r,r*(o.alto||1.15),0,0,7); trazo(c, Math.max(4, r*0.16));
+}
+function ceja(c, x, y, w, ang=0, curva=0.25){
+  c.save(); c.translate(x,y); c.rotate(ang); c.beginPath(); c.moveTo(-w/2,0); c.quadraticCurveTo(0,-w*curva,w/2,0); trazo(c, Math.max(6,w*0.16)); c.restore();
+}
+function boca(c, x, y, w, tipo='sonrisa', ang=0){
+  c.save(); c.translate(x,y); c.rotate(ang); const lw = Math.max(5, w*0.11);
+  if (tipo==='sonrisa'){ c.beginPath(); c.moveTo(-w/2,0); c.quadraticCurveTo(0,w*0.6,w/2,0); c.closePath(); c.fillStyle='#8E3440'; c.fill(); trazo(c, lw); }
+  else if (tipo==='picara'){ c.beginPath(); c.moveTo(-w/2,-w*0.05); c.quadraticCurveTo(0,w*0.42,w/2,-w*0.22); trazo(c, lw); }
+  else if (tipo==='o'){ c.beginPath(); c.ellipse(0,0,w*0.24,w*0.32,0,0,7); c.fillStyle='#8E3440'; c.fill(); trazo(c, lw); }
+  else if (tipo==='plana'){ c.beginPath(); c.moveTo(-w/2,0); c.quadraticCurveTo(0,-w*0.08,w/2,w*0.06); trazo(c, lw); }
+  else if (tipo==='triste'){ c.beginPath(); c.moveTo(-w/2,w*0.12); c.quadraticCurveTo(0,-w*0.25,w/2,w*0.12); trazo(c, lw); }
+  c.restore();
+}
+function lentesCuadrados(c, x, y, s, ang=0){ // lentes oscuros del cadenero (s = ancho de un cristal)
+  c.save(); c.translate(x,y); c.rotate(ang);
+  for (const sx of [-1,1]){ rr(c, sx*s*0.58 - s/2, -s*0.38, s, s*0.76, s*0.14); c.fillStyle='#232325'; c.fill(); trazo(c, s*0.09);
+    c.beginPath(); c.moveTo(sx*s*0.58 - s*0.3, -s*0.2); c.lineTo(sx*s*0.58 - s*0.1, -s*0.2); trazo(c, s*0.07, 'rgba(255,255,255,0.55)'); }
+  c.beginPath(); c.moveTo(-s*0.1,-s*0.12); c.lineTo(s*0.1,-s*0.12); trazo(c, s*0.09);
+  c.restore();
+}
+function lentesCatEye(c, x, y, s, ang=0, alfa=0.92){ // cat-eye de la diva (s = ancho de un cristal)
+  c.save(); c.translate(x,y); c.rotate(ang);
+  for (const sx of [-1,1]){
+    c.save(); c.translate(sx*s*0.6,0); c.scale(sx,1);
+    c.beginPath(); c.moveTo(-s*0.5,-s*0.12); c.quadraticCurveTo(-s*0.1,-s*0.42,s*0.62,-s*0.5); c.quadraticCurveTo(s*0.55,s*0.38,0,s*0.34); c.quadraticCurveTo(-s*0.52,s*0.3,-s*0.5,-s*0.12); c.closePath();
+    c.fillStyle=`rgba(110,42,53,${alfa})`; c.fill(); trazo(c, s*0.1);
+    c.beginPath(); c.moveTo(-s*0.2,-s*0.12); c.lineTo(s*0.1,-s*0.2); trazo(c, s*0.07, 'rgba(255,255,255,0.6)');
+    destello(c, s*0.6, -s*0.48, s*0.006, C.dorado, false);
+    c.restore();
+  }
+  c.beginPath(); c.moveTo(-s*0.12,-s*0.08); c.quadraticCurveTo(0,-s*0.2,s*0.12,-s*0.08); trazo(c, s*0.1);
+  c.restore();
+}
+function guanteChico(c, x, y, r, ang=0){ // manita enguantada de caricatura (r = radio de la palma)
+  c.save(); c.translate(x,y); c.rotate(ang);
+  c.beginPath(); c.ellipse(-r*1.1, 0, r*0.45, r*0.55, 0, 0, 7); c.fillStyle=C.grafito; c.fill();
+  c.beginPath(); c.ellipse(0,0,r,r*0.9,0,0,7);
+  for (const [fx,fy] of [[0.85,-0.55],[1.0,-0.05],[0.85,0.45]]){ c.moveTo(fx*r+r*0.32, fy*r); c.ellipse(fx*r, fy*r, r*0.34, r*0.26, 0, 0, 7); }
+  c.fillStyle='#FAF6EE'; c.fill(); trazo(c, Math.max(5, r*0.16));
+  c.restore();
+}
+function guanteDiva(c, x, y, r, ang=0){ // guante blanco con contorno vino + grafito
+  c.save(); c.translate(x,y); c.rotate(ang);
+  const forma = ()=>{ c.beginPath(); c.ellipse(0,0,r,r*0.9,0,0,7);
+    for (const [fx,fy] of [[0.85,-0.55],[1.0,-0.05],[0.85,0.45]]){ c.moveTo(fx*r+r*0.32, fy*r); c.ellipse(fx*r, fy*r, r*0.34, r*0.26, 0, 0, 7); } };
+  forma(); trazo(c, r*0.55, 'rgba(110,42,53,0.95)');
+  c.beginPath(); rr(c, -r*1.55, -r*0.55, r*0.6, r*1.1, r*0.2); c.fillStyle=C.grafito; c.fill(); trazo(c, r*0.3, 'rgba(110,42,53,0.95)');
+  forma(); c.fillStyle='#FFFFFF'; c.fill(); trazo(c, Math.max(6, r*0.2));
+  c.beginPath(); c.moveTo(-r*0.2,-r*0.35); c.lineTo(r*0.35,-r*0.35); c.moveTo(-r*0.2,r*0.05); c.lineTo(r*0.4,r*0.05); trazo(c, Math.max(3,r*0.08), '#9A948A');
+  c.restore();
+}
+function rrp(c,x,y,w,h,r){ c.moveTo(x+r,y); c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r); c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath(); } // sin beginPath
+function palmaAlto(c, x, y, r, ang=0){ // guante de frente, palma abierta: «¡alto!»
+  c.save(); c.translate(x,y); c.rotate(ang);
+  const forma = ()=>{ c.beginPath(); rrp(c, -r*0.85, -r*0.7, r*1.7, r*1.55, r*0.6);
+    for (const [fx,l] of [[-0.62,1.05],[-0.2,1.25],[0.22,1.2],[0.62,0.95]]){ rrp(c, fx*r-r*0.2, -r*0.7-l*r+r*0.2, r*0.4, l*r+r*0.2, r*0.2); }
+    c.save(); c.translate(-r*0.75, r*0.05); c.rotate(-0.75); rrp(c, -r*0.2, -r*0.85, r*0.4, r*0.95, r*0.2); c.restore(); };
+  forma(); trazo(c, Math.max(10, r*0.28)); forma(); c.fillStyle='#FFFFFF'; c.fill();
+  rr(c, -r*0.75, r*0.8, r*1.5, r*0.35, r*0.12); c.fillStyle='#FAF6EE'; c.fill(); trazo(c, Math.max(5,r*0.12));
+  c.beginPath(); c.moveTo(-r*0.3, r*0.15); c.quadraticCurveTo(0, r*0.4, r*0.35, r*0.1); trazo(c, Math.max(3,r*0.07), '#B8B2A8');
+  c.restore();
+}
+function estrella(c, x, y, r, col=C.dorado, borde=true){
+  c.beginPath(); for (let i=0;i<10;i++){ const a=-Math.PI/2+i*Math.PI/5, rr2 = i%2? r*0.45 : r; c.lineTo(x+Math.cos(a)*rr2, y+Math.sin(a)*rr2); } c.closePath();
+  c.fillStyle=col; c.fill(); if (borde) trazo(c, Math.max(4, r*0.14));
+}
+function guino(c, x, y, r){ c.beginPath(); c.moveTo(x-r,y); c.quadraticCurveTo(x,y+r*0.75,x+r,y); trazo(c, Math.max(6,r*0.22)); }
+function rubor(c, x, y, w, h, alfa=0.7){ c.save(); c.globalAlpha=alfa; c.beginPath(); c.ellipse(x,y,w,h,0,0,7); c.fillStyle='#E39C8C'; c.fill(); c.restore(); }
+function globo(c, x, y, w, h, colaX, colaY){ // globito crema con cola
+  rr(c, x-w/2, y-h/2, w, h, h*0.4);
+  c.moveTo(x - w*0.12, y+h/2-2); c.lineTo(colaX, colaY); c.lineTo(x + w*0.08, y+h/2-2);
+  c.fillStyle = C.papel; c.fill(); trazo(c, LW);
+  rr(c, x-w/2+LW/2, y-h/2+LW/2, w-LW, h-LW, h*0.4); c.fillStyle=C.papel; c.fill();
+}
+function palomita(c, x, y, r, col=C.salvia){
+  c.beginPath(); c.arc(x,y,r,0,7); c.fillStyle=col; c.fill(); trazo(c, Math.max(5,r*0.14));
+  c.beginPath(); c.moveTo(x-r*0.45,y+r*0.02); c.lineTo(x-r*0.1,y+r*0.36); c.lineTo(x+r*0.5,y-r*0.35); trazo(c, r*0.2, '#FFFDF8');
+}
+function etiquetita(c, x, y, txt, ang=0, size=40, fondo=C.papel){
+  c.save(); c.translate(x,y); c.rotate(ang); c.font = fuente(size);
+  const w = c.measureText(txt).width + 70, h = size*1.55;
+  c.beginPath(); c.moveTo(-w/2+26,-h/2); c.lineTo(w/2,-h/2); c.lineTo(w/2,h/2); c.lineTo(-w/2+26,h/2); c.lineTo(-w/2,0); c.closePath();
+  c.fillStyle=fondo; c.fill(); trazo(c, 5);
+  c.beginPath(); c.arc(-w/2+24,0,7,0,7); trazo(c,4);
+  c.fillStyle=C.grafito; c.textAlign='center'; c.textBaseline='middle'; c.fillText(txt, 14, 3);
+  c.restore();
+}
+function moño(c, x, y, s, col=C.grafito){
+  c.save(); c.translate(x,y);
+  c.beginPath(); c.moveTo(0,0); c.lineTo(-s,-s*0.5); c.lineTo(-s,s*0.5); c.closePath(); c.moveTo(0,0); c.lineTo(s,-s*0.5); c.lineTo(s,s*0.5); c.closePath();
+  c.fillStyle=col; c.fill(); trazo(c, Math.max(4,s*0.15), '#1f1f21');
+  c.beginPath(); c.arc(0,0,s*0.22,0,7); c.fillStyle=col; c.fill(); trazo(c, Math.max(4,s*0.12), '#1f1f21');
+  c.restore();
+}
+// Cara del cadenero: f = {x,y,s}; o = {lentes, cejas, alza, alzaI, alzaD, reflejo (escala), estrellas (escala), guino (0..1), rubor (alfa)}
+function caraCadenero(c, f, o={}){
+  const s = f.s, x = f.x, y = f.y, dx = (o.dx||0)*s;
+  if (o.estrellas!=null){
+    const k = o.estrellas;
+    if (k > 0.02) for (const sx of [-1,1]){ const ex = x+sx*s*0.22, ey = y-s*0.05, r = s*0.17*k;
+      if (k > 0.9){ c.save(); c.globalCompositeOperation='screen'; const g = c.createRadialGradient(ex,ey,0,ex,ey,r*1.9); g.addColorStop(0,'rgba(255,228,150,0.75)'); g.addColorStop(1,'rgba(255,228,150,0)'); c.fillStyle=g; c.fillRect(ex-r*2,ey-r*2,r*4,r*4); c.restore(); }
+      estrella(c, ex, ey, r, '#E2B85A'); destello(c, ex-r*0.25, ey-r*0.3, r*0.006, '#FFFDF8', false); }
+    ceja(c, x-s*0.22, y-s*0.3-(o.alza||0)*s, s*0.2, -0.15); ceja(c, x+s*0.22, y-s*0.3-(o.alza||0)*s, s*0.2, 0.15);
+  } else if (o.guino!=null){
+    const g = o.guino;
+    lentesCuadrados(c, x, y-s*lerp(0.07,0.5,g), s*lerp(0.3,0.26,g), -0.08*g);
+    if (g > 0.45){
+      ojo(c, x-s*0.2, y-s*0.1, s*0.1, {mira:[0,0]}); guino(c, x+s*0.22, y-s*0.1, s*0.11);
+      ceja(c, x-s*0.2, y-s*0.31, s*0.18, -0.25); ceja(c, x+s*0.22, y-s*0.27, s*0.18, 0.15, 0.05);
+    }
+  } else {
+    lentesCuadrados(c, x+dx, y-s*0.07, s*0.3, o.ang||0);
+    if (o.reflejo){ const k=o.reflejo; destello(c, x+dx+s*0.1, y-s*0.12, s*0.0028*k, C.dorado, false); destello(c, x+dx-s*0.24, y-s*0.13, s*0.0018*k, '#FFF3D6', false); }
+    if (o.cejas){ const a=o.alza||0;
+      ceja(c, x-s*0.2+dx, y-s*0.36-(a+(o.alzaI||0))*s, s*0.2, -0.2+(o.cI||0));
+      ceja(c, x+s*0.2+dx, y-s*0.38-(a+(o.alzaD||0))*s, s*0.2, 0.25+(o.cD||0)); }
+  }
+  boca(c, x+(o.dxb||0)*s, y+s*(o.by||0.24), s*(o.bw||0.22), o.boca||'plana', o.bang||0);
+  if (!o.sinMono){ const a = T.cadenero.userData.arriba, m = proj(local(a, V(0,1.36,0.42))); moño(c, m.x, m.y, s*0.13); }
+  if (o.rubor){ c.save(); c.globalAlpha = Math.min(1,o.rubor); rubor(c, x-s*0.36, y+s*0.12, s*0.08, s*0.045); rubor(c, x+s*0.36, y+s*0.12, s*0.08, s*0.045); c.restore(); }
+}
+function nota(c, x, y, s, ang=0){ // notita musical (silbidito)
+  c.save(); c.translate(x,y); c.rotate(ang); c.scale(s,s);
+  c.beginPath(); c.ellipse(0,0,14,10,-0.4,0,7); c.fillStyle=C.grafito; c.fill();
+  c.beginPath(); c.moveTo(12,-4); c.lineTo(12,-52); c.quadraticCurveTo(30,-40,30,-22); trazo(c, 6/s);
+  c.restore();
+}
+
+// =====================================================================
+// ESCENAS
+// =====================================================================
+const {ver, cam, proj, local, escala, todos:T, M} = mundo;
+const P = (obj,x,y,z)=>proj(local(obj, V(x,y,z)));
+function fCad(){ const cb = T.cadenero.userData.cabeza; const p = P(cb, 0, -0.02, 0.6); return {x:p.x, y:p.y, s:escala(cb, V(0,-0.02,0.6))}; }
+function fPastel(cuerpo, x=-0.1, y=1.02){ const p = P(cuerpo, x, y, 0.04); return {x:p.x, y:p.y, s:escala(cuerpo, V(x,y,0.04))}; }
+
+// =====================================================================
+// ANIMACIÓN: tiempo → pose. Todo depende solo de t (sin estado acumulado).
+// =====================================================================
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const lerp=(a,b,k)=>a+(b-a)*k;
+const lerpV=(a,b,k)=>V(lerp(a.x,b.x,k),lerp(a.y,b.y,k),lerp(a.z,b.z,k));
+const eOut=x=>1-Math.pow(1-x,3);
+const eIn=x=>x*x;
+const eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=(x,s=1.7)=>{ if(x<=0)return 0; if(x>=1)return 1; const c3=s+1; return 1+c3*Math.pow(x-1,3)+s*Math.pow(x-1,2); };
+const pop=(t,t0,d=0.32,s=1.9)=>eBack(prog(t,t0,t0+d),s);          // 0→1 con rebote corto
+const caer=x=>x<=0?0:x>=1?1:(x<0.62? Math.pow(x/0.62,2) : 1-0.1*Math.sin(Math.PI*(x-0.62)/0.38)); // cae y rebota una vez
+const bulto=(t,a,b)=>{ const k=prog(t,a,b); return Math.sin(Math.PI*k); };   // 0→1→0
+const resp=(t,f=0.35,fase=0)=>Math.sin((t*f+fase)*Math.PI*2);            // respiración leve
+const parp=(t,t0,base=0)=>base+(1.15-base)*bulto(t,t0,t0+0.2);           // parpadeo
+function conEscala(c,s,cx,cy,fn){ if(s<=0.001) return; c.save(); c.translate(cx,cy); c.scale(s,s); c.translate(-cx,-cy); fn(); c.restore(); }
+function rotuloPop(c, lineas, t, t0, size=100){ const s = pop(t,t0,0.3,1.9); conEscala(c, s, W/2, 280+size*0.56*lineas.length, ()=>rotulo(c, lineas, 280, size)); }
+const ojoP = (c,x,y,r,o)=>ojo(c,x,y,r,Object.assign({colParpado:'#E8C283'},o));
+
+const ESCENAS = [
+// ---------------------------------------------------------------- 1  ¿POR QUÉ SIEMPRE CABE EL POSTRE? (0–2.7)
+{ nombre:'c1 colado', desde:0, hasta:2.7, encima:['pastel'], contorno:['pastel','cadenero'],
+  montar(t){
+    ver('puerta','cadenero','pastel');
+    T.pared.position.set(0,0,-3.2);
+    T.puerta.position.set(-1.0,0,-3.0);
+    T.cadenero.position.set(1.3,0,-1.2); T.cadenero.rotation.y = -0.7;
+    const k = pop(t, 1.12, 0.26, 2.4); // ¡alto! la mano sube de golpe
+    mundo.poseCadenero({bIz:lerp(-0.12,-2.62,k), bIx:lerp(0,-0.28,k), mIz:0.2*k, bDz:0.15, ladea:-0.04*k+0.01*resp(t), inclina:-0.05*k});
+    // pastel de puntitas, avanzando 0–1.5
+    const w = prog(t,0,1.5), amp = 1-prog(t,1.3,1.55), paso = t*Math.PI*2*1.7, sn = Math.sin(paso);
+    T.pastel.position.set(lerp(-1.0,-0.6,eOut(w)), 0.06+0.05*Math.abs(sn)*amp, 2.2);
+    T.pastel.rotation.y = 0.42; T.pastel.scale.setScalar(1.22);
+    T.pastel.userData.cuerpo.rotation.z = -0.2 + 0.03*sn*amp + 0.05*eOut(prog(t,1.7,1.95)); // al verse cachado, se echa atrás
+    T.pastel.userData.piernas[0].rotation.z = 0.75 + 0.3*sn*amp; T.pastel.userData.piernas[1].rotation.z = -0.2 - 0.3*sn*amp;
+    cam(30, V(0,4.4,15.5), V(0,2.05,0));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    const pl = T.puerta.userData.placa;
+    if (pase==='fondo'){
+      const p = P(pl,0,0,0.05), s = escala(pl, V(0,0,0.05));
+      c.save(); c.translate(p.x,p.y); c.font=fuente(s*0.46); c.textAlign='center'; c.textBaseline='middle'; c.fillStyle=C.cereza; c.fillText('LLENO', 0, s*0.03); c.restore();
+      const f = fCad(), k = pop(t,1.12,0.26,2.4);
+      if (t < 1.18) caraCadenero(c, f, {cejas:true, alza:-0.02, boca:'plana', by:0.25, bw:0.2, dx:-0.06, dxb:-0.08});
+      else caraCadenero(c, f, {cejas:true, alza:0.05, boca:'o', by:0.26, bw:0.24*(0.6+0.4*k), dx:-0.06, dxb:-0.08});
+      if (t > 1.12){ const m = T.cadenero.userData.bI.userData.mano, pm = proj(local(m, V(0,-0.05,0))), px = pm.x+f.s*0.02, py = pm.y-f.s*0.32;
+        conEscala(c, Math.min(1,k*1.05), px, py+f.s*0.2, ()=>palmaAlto(c, px, py, f.s*0.26, 0.1));
+        if (t < 2.3){ c.save(); c.globalAlpha = 1-prog(t,1.9,2.3); rayitas(c, px, py-f.s*0.1, f.s*0.42, [-2.6,-2.1,-1.57,-1.05,-0.55], 30*k); c.restore(); } }
+      const fp = fPastel(T.pastel.userData.cuerpo, 0.1, 0.8); brillo(c, fp.x, fp.y, 520);
+    } else {
+      const cu = T.pastel.userData.cuerpo, f = fPastel(cu, -0.12, 1.0);
+      const susto = eOut(prog(t,1.72,1.9)); // la diva se sabe cachada
+      const pa = lerp(0.45, 0.05, susto), mira = [lerp(1.45,1.2,susto), lerp(-0.15,-0.35,susto)];
+      ojoP(c, f.x-f.s*0.24, f.y, f.s*0.11, {mira, parpado:pa});
+      ojoP(c, f.x+f.s*0.12, f.y-f.s*0.03, f.s*0.11, {mira, parpado:pa});
+      ceja(c, f.x-f.s*0.24, f.y-f.s*(0.2+0.06*susto), f.s*0.16, 0.25, 0.1); ceja(c, f.x+f.s*0.12, f.y-f.s*(0.24+0.05*susto), f.s*0.16, -0.2, 0.3);
+      lentesCatEye(c, f.x-f.s*0.05, f.y-f.s*(0.25+0.08*susto), f.s*0.26, -0.12, 0.95);
+      boca(c, f.x-f.s*0.04, f.y+f.s*0.3, f.s*0.26, susto>0.5?'plana':'picara', -0.1);
+      rubor(c, f.x-f.s*0.45, f.y+f.s*0.18, f.s*0.08, f.s*0.04); rubor(c, f.x+f.s*0.3, f.y+f.s*0.16, f.s*0.08, f.s*0.04);
+      if (t < 1.55){ c.save(); c.globalAlpha = 1-prog(t,1.3,1.55); lineasCineticas(c, f.x-f.s*1.25, f.y+f.s*0.2, Math.PI, 3, 90, 40); c.restore(); }
+      const ce = proj(local(cu.userData.cereza, V(0,0,0))); destello(c, ce.x+30, ce.y-36, 0.9*(0.85+0.15*resp(t,0.9)), '#FFFDF8');
+      rotuloPop(c, [[['¿POR QUÉ SIEMPRE']],[['CABE EL POSTRE?']]], t, 0.15);
+    }
+  }
+},
+// ---------------------------------------------------------------- 2  NO CABE UN ALFILER (2.7–6.8)
+{ nombre:'c2 llena', desde:2.7, hasta:6.8, encima:['mano'], contorno:['mano'],
+  montar(t){
+    ver('silla','mano');
+    T.pared.position.set(0,0,-4);
+    T.silla.position.set(-0.9,0,-0.6); T.silla.rotation.y = 0.12;
+    // «hasta aquí» (2.8–3.6) y se desploma (~4.6)
+    const w = eOut(prog(t,2.8,3.1)) * (1 - caer(prog(t,4.45,4.78)));
+    const toque = -0.09*Math.abs(Math.sin((t-3.1)/0.25*Math.PI))*bulto(t,3.1,3.62); // golpecitos «hasta aquí»
+    T.mano.position.set(lerp(0.42,-0.15,w), lerp(2.18,3.7,w)+toque, lerp(0.0,1.6,w));
+    T.mano.rotation.set(lerp(0.15,0.0,w), lerp(0.28,-1.05,w), lerp(-0.06,0.05,w));
+    mundo.poseMano(lerp(1.05,0.05,w), lerp(0.55,0.05,w), lerp(0.06,0.02,w), [lerp(0.9,0.4,w), lerp(0.8,0.25,w)]);
+    cam(28, V(0.6,3.6,10.5), V(0.2,2.3,0));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    if (pase==='fondo'){ rayosLuz(c, 0.12); return; }
+    { const na = prog(t,3.0,3.25)*(1-prog(t,4.4,4.6)); if (na > 0){ // línea de nivel: «lleno hasta aquí»
+      const pm = P(T.mano, 0.55, 0.12, 0); c.save(); c.globalAlpha = na; c.setLineDash([26,18]); c.beginPath(); c.moveTo(64, pm.y-14); c.lineTo(W-64, pm.y-14); trazo(c, 7, C.cereza); c.restore();
+      if (t>3.1 && t<3.65){ c.save(); c.globalAlpha = bulto(t,3.1,3.65); rayitas(c, pm.x, pm.y-20, 50, [-2.3,-1.57,-0.85], 26, 6); c.restore(); } } }
+    if (t>4.62 && t<5.0){ const pm = P(T.mano, 0.3, -0.1, 0); c.save(); c.globalAlpha = 1-prog(t,4.8,5.0); rayitas(c, pm.x, pm.y+30, 40, [0.5,1.2,1.95,2.65], 30); c.restore(); }
+    // globito con batería al 100 % (pop ~4.8) que tiembla de llena
+    const gs = pop(t, 4.8, 0.34, 2.0); if (gs <= 0.001) { rotuloPop(c, [[['NO CABE']],[['UN ALFILER']]], t, 3.7); return; }
+    const pm = P(T.mano, 0.5, 0.15, 0);
+    const tb = t>5.0 ? 1 : 0, jx = tb*(5*Math.sin(t*71)+3*Math.sin(t*37)), jy = tb*4*Math.sin(t*53);
+    conEscala(c, gs, pm.x+60, pm.y-70, ()=>{
+      const gx = 680, gy = 730;
+      globo(c, gx, gy, 600, 370, pm.x+60, pm.y-70);
+      const bw = 370, bh = 160, bx = gx-bw/2-14+jx, by = gy-120+jy;
+      rr(c, bx, by, bw, bh, 26); c.fillStyle='#FFFDF8'; c.fill(); trazo(c, 11);
+      rr(c, bx+bw, by+48, 26, 64, 8); c.fillStyle=C.grafito; c.fill();
+      const bb = (bw-28-3*12)/4; for (let i=0;i<4;i++){ rr(c, bx+14+i*(bb+12), by+18, bb, bh-36, 10); c.fillStyle=C.cereza; c.fill(); }
+      if (tb){ c.save(); c.globalAlpha=0.8; rayitas(c, bx+bw/2, by+bh/2, bw*0.62, [-0.35,0.35,Math.PI-0.35,Math.PI+0.35], 22, 6); c.restore(); }
+      c.font = fuente(76); c.textAlign='center'; c.fillStyle=C.grafito; c.fillText('100 %', gx-14, gy+130);
+    });
+    rotuloPop(c, [[['NO CABE']],[['UN ALFILER']]], t, 3.7);
+  }
+},
+// ---------------------------------------------------------------- 3  ¡MILAGRO DE SOBREMESA! (6.8–11.5)
+{ nombre:'c3 milagro', desde:6.8, hasta:11.5, encima:['pastelito','mano','tenedor'], contorno:['pastelito','mano','tenedor','campana'],
+  montar(t){
+    ver('barra','platoPostre','pastelito','campana','telonFondo');
+    T.pared.position.set(0,0,-5); T.telonFondo.position.set(0,0,-3.2);
+    T.barra.position.set(0,1.8,0);
+    T.platoPostre.position.set(-0.35,1.8,0.3);
+    mundo.ponerPastelito(0); T.pastelito.position.set(-0.35,1.9,0.55); T.pastelito.rotation.y = 0.5;
+    T.pastelito.visible = t >= 7.0;
+    // campana: tapa el pastel y sube (7.0–7.8)
+    const cl = prog(t,7.0,7.8), cb = eBack(cl,1.2), ce = eOut(cl);
+    T.campana.position.copy(lerpV(V(-0.35,1.83,0.3), V(-1.75,3.55,-0.4), cb));
+    T.campana.position.y += 1.2*bulto(t,7.0,7.8); // primero sube, luego se va de lado
+    T.campana.rotation.set(lerp(0,0.3,ce),0,lerp(0,0.8,ce)); T.campana.scale.setScalar(lerp(1.4,0.72,ce));
+    // mano: pose final (puño sobre el tenedor)
+    const dx = V(-0.78,0.62,0).normalize(), dy = V(0,0.2,1).normalize(), dz = dx.clone().cross(dy).normalize(); dy.crossVectors(dz, dx);
+    T.mano.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(dx,dy,dz)); T.mano.scale.setScalar(0.85);
+    T.mano.position.set(1.2,3.1,0.9);
+    T.mano.updateMatrixWorld(true); const agarre = T.mano.localToWorld(V(0.74,-0.14,0));
+    T.tenedor.scale.setScalar(0.85); T.tenedor.quaternion.setFromUnitVectors(V(0,1,0), dz.clone().add(V(-0.1,0,0)).normalize());
+    T.tenedor.updateMatrixWorld(true); T.tenedor.position.add(agarre.clone().sub(T.tenedor.localToWorld(V(0,0.42,0))));
+    // «mágicamente» (~8.8): la mano revive y atrapa el tenedor que cae
+    const a = eOut(prog(t,8.55,8.95));
+    const tink = bulto(t,10.3,10.5) + bulto(t,10.8,11.0);
+    const listo = eIO(prog(t,9.35,10.2)), rebote = bulto(t,8.95,9.25);
+    const golpe = V(-0.55,-0.95,-0.35).multiplyScalar(listo).add(V(-0.05,-0.12,0).multiplyScalar(rebote)).add(V(0,0.28,0).multiplyScalar(listo*(1-tink)-listo));
+    const off = V(1.3,-1.6,0.4).multiplyScalar(1-a).add(golpe);
+    T.mano.position.add(off); T.mano.visible = t >= 8.55;
+    const cl2 = eOut(prog(t,8.86,9.0));
+    mundo.poseMano(lerp(0.2,1.45,cl2), lerp(0.1,1.35,cl2), 0.1*(1-cl2), [lerp(0.4,0.9,cl2), lerp(0.2,0.7,cl2)]);
+    const fall = eIn(prog(t,8.5,8.92));
+    T.tenedor.position.add(V(0.35*(1-fall), 3.4*(1-fall), 0)).add(golpe);
+    T.tenedor.rotateOnWorldAxis(V(0,0,1), 2.2*(1-fall));
+    T.tenedor.visible = t >= 8.5;
+    cam(30, V(0,6.2,13.5), V(0,2.75,0));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    const cu = T.pastelito;
+    if (pase==='fondo'){ rayosLuz(c, 0.12); if (t>=7.0){ const f = fPastel(cu, 0.0, 0.7); brillo(c, f.x, f.y, 560*(0.5+0.5*eOut(prog(t,7.0,7.8))), 'rgba(255,226,170,0.85)'); } return; }
+    if (t >= 7.0){
+      const f = fPastel(cu, -0.08, 0.98);
+      const pa = Math.max(1.1*(1-eOut(prog(t,7.25,7.5))), parp(t,10.4), parp(t,10.9));
+      const mira = t < 8.6 ? [-0.6,-0.5] : [0.6,-0.4];
+      ojoP(c, f.x-f.s*0.2, f.y, f.s*0.11, {mira, parpado:pa}); ojoP(c, f.x+f.s*0.16, f.y-f.s*0.02, f.s*0.11, {mira, parpado:pa});
+      boca(c, f.x-f.s*0.02, f.y+f.s*0.25, f.s*0.22, 'sonrisa');
+      const ce = proj(local(cu.userData.cereza, V(0,0,0))), k = pop(t,7.45,0.35,2.2);
+      destello(c, ce.x+40, ce.y-46, 1.2*k, '#FFFDF8'); destello(c, f.x-f.s*0.95, f.y-f.s*0.35, 0.8*k*(0.85+0.15*resp(t,0.8)), C.dorado); destello(c, f.x+f.s*1.05, f.y+f.s*0.1, 0.6*k, '#FFFDF8');
+    }
+    if (t>7.0 && t<8.1){ const cp = P(T.campana, 0, 0.6, 0); c.save(); c.globalAlpha = bulto(t,7.0,8.1); lineasCineticas(c, cp.x+30, cp.y+150, Math.PI*0.62, 3, 80, 36); c.restore(); }
+    if (t >= 8.9 && t < 9.5){ const tp = P(T.tenedor, 0, 1.55, 0); c.save(); c.globalAlpha = 1-prog(t,9.25,9.5); rayitas(c, tp.x, tp.y, 70, [-1.9,-1.45,-1.0,-0.55], 34*pop(t,8.9,0.2)); c.restore(); }
+    if (t > 8.55 && t < 9.2){ const mp = P(T.mano, 0.3, 0, 0); c.save(); c.globalAlpha = 1-prog(t,8.95,9.2); lineasCineticas(c, mp.x+70, mp.y+70, 0.65, 3, 70, 32); c.restore(); }
+    for (const t0 of [10.4, 10.9]) if (t>=t0 && t<t0+0.4){ // tink-tink: arquitos de sonido en el golpe
+      const tp = P(T.tenedor, 0, -0.02, 0), k = eOut(prog(t,t0,t0+0.3));
+      c.save(); c.globalAlpha = 1-prog(t,t0+0.2,t0+0.4);
+      for (const lado of [-1,1]) for (let i=0;i<3;i++){ const r0 = 30+i*26+k*18; c.beginPath(); c.arc(tp.x, tp.y, r0, lado<0?Math.PI*0.8:-Math.PI*0.2, lado<0?Math.PI*1.2:Math.PI*0.2); trazo(c, 6); }
+      c.restore(); }
+    rotuloPop(c, [[['¡MILAGRO DE']],[['SOBREMESA!']]], t, 9.5);
+  }
+},
+// ---------------------------------------------------------------- 4  interruptor REPETIDO / NUEVO (11.5–18.1)
+{ nombre:'c4 interruptor', desde:11.5, hasta:18.1, encima:['guante'], contorno:['guante'],
+  montar(t){
+    ver('atril','guante','cadenero');
+    const e = eOut(prog(t,11.5,12.15)); // entra mirando el interruptor
+    T.cadenero.position.set(lerp(2.9,1.4,e),0,-1.15); T.cadenero.rotation.y = -0.5; T.cadenero.scale.setScalar(1.2);
+    const piensa = eIO(prog(t,14.4,14.85))*(1-eIO(prog(t,16.05,16.35)));
+    mundo.poseCadenero({ladea:0.1+0.07*piensa+0.008*resp(t), inclina:0.012*resp(t,0.25)+0.03*(1-e), bDz:0.1});
+    T.cadenero.userData.bI.visible = false;
+    T.pared.position.set(0,0,-4.5);
+    T.atril.position.set(0,0,0);
+    const sube = eBack(prog(t,16.35,16.62),1.8);
+    T.atril.userData.pal.rotation.x = lerp(0.55,-0.55,sube);
+    T.atril.updateMatrixWorld(true); const bw = T.atril.userData.bola.getWorldPosition(V(0,0,0));
+    T.cadenero.updateMatrixWorld(true); const hombro = T.cadenero.userData.bI.getWorldPosition(V(0,0,0));
+    const ap = 1-eIO(prog(t,15.85,16.35));
+    const blanco = bw.clone().add(V(0.55,0.15,0.35).multiplyScalar(ap)).add(V(1.5*(1-e),0.3*(1-e),0));
+    T.guante.quaternion.setFromUnitVectors(V(0,-1,0), hombro.clone().sub(blanco).normalize()); T.guante.scale.setScalar(0.7); T.guante.updateMatrixWorld(true);
+    const tip = T.guante.localToWorld(V(0.04,0.52,0.02)); T.guante.position.copy(blanco.clone().sub(tip).add(V(0.1,0.12,0.02)));
+    const kz = eIO(prog(t,12.3,14.4));
+    cam(31, lerpV(V(0.6,6.1,10.9), V(0.45,5.6,9.0), kz), V(0.45,2.95,0));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    const tapa = T.atril.userData.tapa, on = t >= 16.55;
+    if (pase==='fondo'){
+      const nu = P(tapa, 0, 0.15, -0.5), re = P(tapa, 0, 0.15, 0.52), s = escala(tapa, V(0,0.15,0));
+      if (on) brillo(c, nu.x, nu.y, 260*pop(t,16.55,0.3), 'rgba(255,220,140,0.6)');
+      c.save(); c.font = fuente(s*0.2); c.textAlign='center'; c.textBaseline='middle';
+      const wN = c.measureText('NUEVO').width + 50;
+      rr(c, nu.x-wN/2, nu.y-s*0.14, wN, s*0.28, s*0.1); c.fillStyle= on ? C.dorado : '#E2D6BC'; c.fill(); trazo(c, 6);
+      c.fillStyle= on ? C.grafito : '#7C766C'; c.fillText('NUEVO', nu.x, nu.y+3);
+      c.font = fuente(s*0.15); const wR = c.measureText('REPETIDO').width + 40;
+      rr(c, re.x-wR/2, re.y-s*0.11, wR, s*0.22, s*0.08); c.fillStyle='#D8D2C8'; c.fill(); trazo(c, 5, '#8A8780');
+      c.fillStyle='#8A8780'; c.fillText('REPETIDO', re.x, re.y+2);
+      c.restore();
+      return;
+    }
+    const b = proj(local(T.atril.userData.bola, V(0,0,0)));
+    if (on){ const k = pop(t,16.55,0.35,2.2);
+      destello(c, b.x+70, b.y-40, 1.3*k, C.dorado); destello(c, b.x-80, b.y-70, 0.8*pop(t,16.62,0.3,2.2), C.dorado); destello(c, b.x+20, b.y-110, 0.6*pop(t,16.7,0.3,2.2), '#FFFDF8');
+      if (t < 17.6){ c.save(); c.globalAlpha = 1-prog(t,17.2,17.6); rayitas(c, b.x, b.y, 70, [-2.8,-2.3,-1.85,-0.6,-0.15], 36*k); c.restore(); } }
+    if (t > 16.3 && t < 16.9){ const g = P(T.guante, 0, 0.5, 0); c.save(); c.globalAlpha = bulto(t,16.3,16.9); lineasCineticas(c, g.x+40, g.y+80, -1.2, 3, 70, 30); c.restore(); }
+    const f = fCad();
+    if (on) caraCadenero(c, f, {cejas:true, alza:0.06, boca:'picara', by:0.25, bw:0.22, bang:-0.12, reflejo:pop(t,16.62,0.35,2.4)});
+    else { const pz = eIO(prog(t,14.4,14.85)) * (1-eIO(prog(t,16.05,16.35)));
+      caraCadenero(c, f, {cejas:true, alza:0.0, alzaI:0.08*pz, alzaD:-0.03*pz, cI:-0.15*pz, boca:'plana', by:0.25, bw:lerp(0.2,0.16,pz), dxb:0.05*pz, bang:0.25*pz}); }
+  }
+},
+// ---------------------------------------------------------------- 5  MISMO SABOR: NO PASA (18.1–22.0)
+{ nombre:'c5 cortina', desde:18.1, hasta:22.0, encima:['platoHondo'], contorno:['platoHondo','cadenero'],
+  montar(t){
+    ver('cortina','platoHondo','cadenero');
+    T.pared.position.set(0,0,-0.5);
+    T.cortina.position.set(-0.35,0,-0.2); T.cortina.scale.setScalar(0.85);
+    // cortina: enrollada arriba; cae (19.85–20.1) y rebota en seco
+    const cae = prog(t,19.85,20.1), reb = prog(t,20.1,20.32);
+    const k = reb>0 ? 1-0.05*Math.sin(Math.PI*reb) : eIn(cae);
+    const cu = T.cortina.userData; cu.lamas.forEach((l,i)=>{ l.position.y = 4.3-(4.3-(0.17+i*0.3))*k; }); cu.pie.position.y = 4.3-(4.3-0.08)*k;
+    // plato salado cansado, arrastrando los pies (18.1–20.0)
+    const s = prog(t,18.1,20.0), mov = 1-prog(t,19.8,20.05), paso = (t-18.1)*Math.PI*2*1.4;
+    T.platoHondo.position.set(lerp(-2.6,-0.5,1-Math.pow(1-s,1.6)), 0.38+0.03*Math.abs(Math.sin(paso))*mov, 1.3); T.platoHondo.scale.setScalar(1.1);
+    T.platoHondo.rotation.set(0.12, 0.2, -0.05+0.05*Math.sin(paso)*mov);
+    T.cadenero.position.set(1.7,0,0.6); T.cadenero.rotation.y = -0.5; T.cadenero.scale.setScalar(0.85);
+    mundo.poseCadenero({bIx:-1.3, bIz:0.78, bDx:-1.12, bDz:-0.8, inclina:0.01*resp(t)});
+    cam(30, V(0.3,5.6,16.5), V(0.3,1.75,0));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    const pl = T.platoHondo;
+    if (pase==='fondo'){
+      if (t >= 20.12){
+        const a = P(T.cortina, 0, 2.7, 0.1), s = escala(T.cortina, V(0,2.7,0.1));
+        conEscala(c, pop(t,20.12,0.3,2.0), a.x, a.y, ()=>{
+          c.save(); c.font = fuente(s*0.42); c.textAlign='center'; c.textBaseline='middle';
+          const l1='MISMO SABOR:', l2='NO PASA', w = Math.max(c.measureText(l1).width, c.measureText(l2).width)+70;
+          rr(c, a.x-w/2, a.y-s*0.62, w, s*1.18, 28); c.fillStyle='rgba(241,230,210,0.96)'; c.fill(); trazo(c, 6);
+          c.fillStyle=C.grafito; c.fillText(l1, a.x, a.y-s*0.26); c.fillStyle=C.cereza; c.fillText(l2, a.x, a.y+s*0.26);
+          c.restore(); });
+      }
+      if (t >= 20.08 && t < 20.55){ const pie = P(T.cortina, -1.6, 0.1, 0.2), pie2 = P(T.cortina, 1.6, 0.1, 0.2), k = pop(t,20.08,0.15);
+        c.save(); c.globalAlpha = 1-prog(t,20.35,20.55); rayitas(c, pie.x, pie.y, 30, [-2.6,-2.2], 40*k); rayitas(c, pie2.x, pie2.y, 30, [-0.95,-0.55], 40*k); c.restore(); }
+      return;
+    }
+    const f = P(pl, 0, 0.5, 1.06), s = escala(pl, V(0,0.5,1.06));
+    const pa = Math.max(0.55, parp(t,20.95,0.55)*1.0, parp(t,21.5,0.55));
+    const mira = t < 20.1 ? [0.3,0.5] : [0.5,-0.2]; // tras el golpe, voltea resignado a la cortina
+    for (const sx of [-1,1]){
+      const ox = f.x+sx*s*0.26, oy = f.y-s*0.02;
+      c.beginPath(); c.arc(ox, oy+s*0.1, s*0.14, 0.25, Math.PI-0.25); trazo(c, 11, '#9C8AA0');
+      c.beginPath(); c.arc(ox, oy+s*0.13, s*0.15, 0.4, Math.PI-0.4); trazo(c, 7, '#B3A2B6');
+      ojo(c, ox, oy, s*0.09, {mira, parpado:pa, colParpado:'#EFE6D6'});
+    }
+    boca(c, f.x, f.y+s*0.22, s*0.2, 'triste');
+    if (t < 20.0){ c.save(); c.globalAlpha = 1-prog(t,19.8,20.0); lineasCineticas(c, f.x-s*1.3, f.y+s*0.45, Math.PI, 3, 60, 28); c.restore(); }
+    const fc = fCad(); caraCadenero(c, fc, {cejas:true, alza:-0.03, boca:'plana', by:0.25, bw:0.2});
+    etiquetita(c, f.x-s*0.95, f.y-s*0.75, '3ª', -0.3, 86);
+  }
+},
+// ---------------------------------------------------------------- 6  PICO · SABOR NUEVO: PASE DIRECTO (22.0–26.1)
+{ nombre:'c6 pasarela', desde:22.0, hasta:26.1, encima:['pastel'], contorno:['pastel'],
+  montar(t){
+    ver('pastel','telonFondo');
+    T.pared.position.set(0,0,-5); T.telonFondo.position.set(0,0,-3.0);
+    // pasarela 22.0–24.0: entra contoneándose y se planta
+    const s = prog(t,22.0,24.0), mov = 1-prog(t,23.75,24.0), paso = (t-22.0)*Math.PI*2*1.5, sn = Math.sin(paso);
+    T.pastel.position.set(lerp(-2.3,0.1,1-Math.pow(1-s,2)), 0.035*Math.abs(sn)*mov, 0.6);
+    T.pastel.rotation.y = 0.45 + 0.08*sn*mov; T.pastel.scale.setScalar(1.3);
+    const planta = eBack(prog(t,23.85,24.15),2.0);
+    T.pastel.userData.cuerpo.rotation.z = 0.04 + 0.07*sn*mov - 0.04*bulto(t,23.85,24.2);
+    T.pastel.userData.piernas[0].rotation.z = 0.25*planta + 0.4*sn*mov; T.pastel.userData.piernas[1].rotation.z = -0.3*planta - 0.4*sn*mov;
+    cam(30, V(0,4.4,13.0), V(0,2.05,0));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    const cu = T.pastel.userData.cuerpo;
+    if (pase==='fondo'){
+      rayosLuz(c, 0.16);
+      const f = fPastel(cu, 0.1, 0.8); brillo(c, f.x, f.y, 600, 'rgba(255,228,175,0.9)');
+      return;
+    }
+    const f = fPastel(cu, -0.12, 1.02);
+    const baja = eOut(prog(t,24.2,24.55)); // la manita se baja los lentes
+    const pa = lerp(0.6, 0.3, baja);
+    ojoP(c, f.x-f.s*0.24, f.y-f.s*0.1, f.s*0.11, {mira:[-0.2,-0.5], parpado:pa, colParpado:'#EBCB8F'});
+    ojoP(c, f.x+f.s*0.12, f.y-f.s*0.12, f.s*0.11, {mira:[-0.2,-0.5], parpado:pa, colParpado:'#EBCB8F'});
+    if (baja > 0.5) for (const [dx,dy,a] of [[-0.24,-0.1,-0.5],[0.12,-0.12,0.5]]){ // pestañitas
+      const ex=f.x+dx*f.s, ey=f.y+dy*f.s;
+      for (let k=0;k<3;k++){ const aa = -Math.PI/2 + (k-1)*0.45 + (a>0?0.35:-0.35); c.beginPath(); c.moveTo(ex+Math.cos(aa)*f.s*0.12, ey+Math.sin(aa)*f.s*0.13); c.lineTo(ex+Math.cos(aa)*f.s*0.19, ey+Math.sin(aa)*f.s*0.2); trazo(c, 5); }
+    }
+    lentesCatEye(c, f.x-f.s*lerp(0.06,0.02,baja), f.y+f.s*lerp(-0.1,0.27,baja), f.s*0.25, lerp(-0.05,-0.32,baja), 0.97);
+    const br = pop(t,24.05,0.22,2.0);
+    if (br > 0.001){ // bracito con manita enguantada que jala el armazón
+      const lado = P(cu, 0.62, 0.95, 0.02), gx = f.x+f.s*lerp(0.5,0.44,baja), gy = f.y+f.s*lerp(-0.04,0.36,baja);
+      conEscala(c, br, lado.x, lado.y, ()=>{
+        c.beginPath(); c.moveTo(lado.x, lado.y+f.s*0.1); c.quadraticCurveTo(lado.x+f.s*0.4, gy+f.s*0.3, gx+f.s*0.12, gy+f.s*0.04); trazo(c, 18); trazo(c, 9, '#E8C283');
+        guanteDiva(c, gx, gy, f.s*0.13, -0.75); });
+    }
+    boca(c, f.x-f.s*0.04, f.y+f.s*0.34, f.s*0.22, 'picara', -0.05);
+    rubor(c, f.x-f.s*0.46, f.y+f.s*0.25, f.s*0.07, f.s*0.035); rubor(c, f.x+f.s*0.3, f.y+f.s*0.23, f.s*0.07, f.s*0.035);
+    // la cereza destella como flash (~24.7, «llega»)
+    const ce = proj(local(cu.userData.cereza, V(0,0,0)));
+    if (t >= 24.8 && t < 25.15){ // destello breve y chico, ya con los ojos a la vista
+      const fl = bulto(t,24.8,25.15);
+      rayitas(c, ce.x, ce.y, 44, [-2.6,-1.9,-1.2,-0.5], 20*fl, 5);
+      destello(c, ce.x+6, ce.y-4, 0.35+0.4*fl, '#FFFDF8', false);
+    }
+    const r = prng(6);
+    for (let i=0;i<9;i++){ const x=120+r()*840, y=700+r()*640, s0=0.45+r()*0.6, fase=r();
+      destello(c, x, y, s0*(0.7+0.3*Math.sin((t*1.6+fase)*Math.PI*2)), i%3? C.dorado:'#FFFDF8'); }
+    if (t < 24.0){ const pie = P(T.pastel, -0.3, 0.05, 0); c.save(); c.globalAlpha = 1-prog(t,23.75,24.0); lineasCineticas(c, pie.x-160, pie.y-40, 0, 3, 90, 34); c.restore(); }
+    rotuloPop(c, [[['SABOR NUEVO:']],[['PASE DIRECTO',C.cereza]]], t, 22.15);
+  }
+},
+// ---------------------------------------------------------------- 7  PICO · CERO CULPA: ES TU CEREBRO (26.1–31.2)
+{ nombre:'c7 vip', desde:26.1, hasta:31.2, encima:['cadenero'], contorno:['cadenero'],
+  montar(t){
+    ver('puertaVIP','cadenero','posteA','posteB','cordon');
+    T.pared.position.set(0,0,-1.2);
+    T.puertaVIP.position.set(0.55,0,-1.1); T.puertaVIP.scale.setScalar(0.82);
+    T.puertaVIP.userData.hoja.rotation.y = lerp(0, 1.25, eBack(prog(t,28.6,29.4),1.0)); // SALA VIP se abre
+    T.cadenero.position.set(-0.85,0,1.0); T.cadenero.rotation.y = 0.55;
+    const quita = eIO(prog(t,26.18,26.45)), rev = eIO(prog(t,27.3,28.1));
+    mundo.poseCadenero({inclina:0.42*rev - 0.06*bulto(t,26.25,26.7) + 0.01*resp(t), bIz:lerp(-0.12,-0.55,rev), bIx:lerp(0,-0.9,rev), bDz:lerp(-2.75,0.95,quita), bDx:lerp(-0.5,-0.5,quita)});
+    const orilla = eIO(prog(t,28.75,29.45)); // los postes se corren a la orilla: entrada despejada
+    T.posteA.position.set(lerp(-0.2,-2.6,orilla),0,2.3); T.posteB.position.set(lerp(1.85,2.75,orilla),0,1.6);
+    // cordón: enganchado entre los postes; ~28.6 se desengancha y cae colgando
+    const d = eBack(prog(t,28.6,29.15),1.3);
+    const cerrado = [[1.85,1.95,1.6],[1.35,1.45,1.82],[0.85,1.3,2.0],[0.3,1.5,2.18],[-0.2,1.95,2.3]];
+    const abierto = [[1.85,1.95,1.6],[1.85,1.2,1.75],[1.8,0.5,1.85],[1.5,0.12,2.05],[1.0,0.08,2.3]];
+    mundo.ponerCordon(cerrado.map((p,i)=>p.map((v,j)=>lerp(v, abierto[i][j], d) + (j===0 ? 0.9*orilla : 0))));
+    const kz = eIO(prog(t,28.75,31.15)); // arranca cerca de su cara; viaje suave hacia la puerta que se abre
+    cam(30, lerpV(V(-0.55,3.95,12.6), V(0.45,3.6,13.4), kz), lerpV(V(-0.45,2.75,0), V(0.5,2.45,0), kz));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    if (pase==='fondo'){
+      const ab = eOut(prog(t,28.6,29.5));
+      const lz = P(T.puertaVIP, 0, 2.2, 0); if (ab > 0) brillo(c, lz.x, lz.y, 560*(0.4+0.6*ab), `rgba(255,214,140,${0.65*ab})`);
+      const l = P(T.puertaVIP, 0, 4.6, 0.36), s = escala(T.puertaVIP, V(0,4.6,0.36));
+      c.save(); c.font = fuente(s*0.3); c.textAlign='center'; c.textBaseline='middle'; c.fillStyle=C.grafito; c.fillText('SALA VIP', l.x, l.y+3); c.restore();
+      if (t >= 30.5) destello(c, l.x+s*0.95, l.y-s*0.15, 0.7*pop(t,30.5,0.3,2.2)*(1-0.4*prog(t,30.9,31.2)), '#FFFDF8');
+      if (t >= 28.6 && t < 29.0){ const pa = P(T.posteA, 0, 2.0, 0); c.save(); c.globalAlpha = 1-prog(t,28.8,29.0); rayitas(c, pa.x, pa.y, 26, [-2.6,-1.57,-0.5], 26*pop(t,28.6,0.15)); c.restore(); }
+      return;
+    }
+    const f = fCad();
+    if (t < 26.3) caraCadenero(c, f, {cejas:true, alza:0.08, boca:'o', by:0.25, bw:0.24});
+    else {
+      const k = 1.3*pop(t,26.3,0.38,2.6) + 0.3*bulto(t,26.3,26.7) + 0.07*Math.sin((t-26.3)*Math.PI*2*1.6)*prog(t,26.7,27.0)*(1-prog(t,30.3,30.6)) - 0.2*prog(t,30.5,30.9);
+      caraCadenero(c, f, {estrellas:k, alza:0.05*Math.min(1,k), boca:'sonrisa', by:0.24, bw:0.26, rubor:prog(t,26.45,26.85)});
+      if (t < 27.2){ c.save(); c.globalAlpha = 1-prog(t,26.9,27.2); c.lineCap='round'; rayitas(c, f.x, f.y-f.s*0.05, f.s*0.62, [-2.7,-2.2,-1.57,-0.94,-0.44], 40*k, 7); c.restore(); }
+      for (const [dx,dy,s,t0] of [[-0.5,-0.55,0.8,26.38],[0.55,-0.6,0.6,26.46],[0.7,0.1,0.5,26.54]]) destello(c, f.x+dx*f.s, f.y+dy*f.s, s*pop(t,t0,0.3,2.2), C.dorado);
+    }
+    // lentes: en la cara hasta ~26.3, luego en la mano
+    const m = T.cadenero.userData.bD.userData.mano, pm = proj(local(m, V(0,-0.1,0)));
+    if (t >= 26.3) lentesCuadrados(c, pm.x+10, pm.y+50, f.s*0.24, 0.6);
+    rotuloPop(c, [[['CERO CULPA:']],[['ES TU CEREBRO']]], t, 26.75);
+  }
+},
+// ---------------------------------------------------------------- 8  GUÁRDALO PARA LA POSADA (31.2–35.5)
+{ nombre:'c8 platito', desde:31.2, hasta:35.5, encima:['pastelito','cucharita'], contorno:['pastelito','cucharita','platito'],
+  montar(t){
+    ver('barra','platito','pastelito','cucharita','telonFondo');
+    T.pared.position.set(0,0,-4); T.telonFondo.position.set(0,0,-2.6);
+    T.barra.position.set(0,1.8,0);
+    T.platito.position.set(-0.3,1.8,0.4);
+    const corte = t >= 33.6;
+    mundo.ponerPastelito(corte?0.3:0, corte?0.12:0); T.pastelito.position.set(0.05,1.9,0.45); T.pastelito.rotation.y = 0.45; T.pastelito.scale.setScalar(0.85);
+    T.pastelito.updateMatrixWorld(true); const punta = T.pastelito.localToWorld(V(-0.45-0.32, 0.12, 0.28));
+    // la cucharita se acerca (32.2–33.35), baja y corta la puntita (~33.6) y se la lleva
+    const ap = 1-eIO(prog(t,32.2,33.35)), dip = eIn(prog(t,33.35,33.6)), lift = eOut(prog(t,33.6,34.1));
+    T.cucharita.position.copy(punta).add(V(0.95,0.2,0.6).multiplyScalar(ap)).add(V(0,0.25*(1-dip),0)).add(V(0,0.12,0)).add(V(0.05,0.2,0.12).multiplyScalar(lift));
+    T.cucharita.rotation.set(0.2,-0.75,0.12+0.15*(1-dip)*(1-ap*0));
+    T.cucharita.userData.bocado.visible = corte;
+    cam(28, V(0,4.6,9.0), V(-0.2,2.95,0));
+    mundo.relleno.color.set(0xfff0d8);
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    const cu = T.pastelito;
+    if (pase==='fondo'){ const f = fPastel(cu, 0.1, 0.8); brillo(c, f.x, f.y, 560, 'rgba(255,226,170,0.85)'); rayosLuz(c, 0.1); return; }
+    const f = fPastel(cu, 0.0, 1.0);
+    const pa = t>=33.6 ? lerp(0,0.45,bulto(t,33.6,34.4)) : parp(t,32.75);
+    const mira = t < 32.2 ? [0.3,0.2] : [-0.8,0.3];
+    ojoP(c, f.x-f.s*0.18, f.y, f.s*0.1, {mira, parpado:pa}); ojoP(c, f.x+f.s*0.16, f.y, f.s*0.1, {mira, parpado:pa});
+    boca(c, f.x, f.y+f.s*0.24, f.s*0.2, 'sonrisa');
+    lentesCatEye(c, f.x-f.s*0.0, f.y-f.s*0.68, f.s*0.2, 0.12);
+    if (t >= 33.6){ const b = P(T.cucharita, 0.05, 0.12, 0);
+      destello(c, b.x+60, b.y-60, 0.8*pop(t,33.6,0.3,2.2), C.dorado); destello(c, b.x-50, b.y-80, 0.55*pop(t,33.7,0.3,2.2), '#FFFDF8');
+      if (t < 34.0){ c.save(); c.globalAlpha = 1-prog(t,33.8,34.0); rayitas(c, b.x, b.y, 50, [-2.6,-2.0,-1.4], 28); c.restore(); } }
+    rotuloPop(c, [[['GUÁRDALO PARA']],[['LA POSADA']]], t, 31.8);
+  }
+},
+// ---------------------------------------------------------------- 9  POSTRE AL FINAL, EN PEDACITO (35.5–39.6)
+{ nombre:'c9 medidor', desde:35.5, hasta:39.6, encima:['medidor','pastelito'], contorno:['pastelito','platito','medidor'],
+  montar(t){
+    ver('barra','platito','pastelito','medidor','cucharita','telonFondo');
+    T.pared.position.set(0,0,-4); T.telonFondo.position.set(0,0,-2.6);
+    T.barra.position.set(0,1.8,0);
+    T.platito.position.set(-1.05,1.8,0.6);
+    const n = t < 36.05 ? 0 : (t < 37.85 ? 1 : 2);
+    const est = [[0.3,0.12,0],[0.38,0.16,0],[0.46,0.2,0]][n]; // la cucharada se ve como mordida redonda arriba (recorte)
+    mundo.ponerPastelito(...est); T.pastelito.position.set(-0.95,1.9,0.8); T.pastelito.rotation.y = 0.4; T.pastelito.scale.setScalar(0.95);
+    const dip = bulto(t,35.8,36.3) + bulto(t,37.6,38.1); // un bocado con cada paso de la aguja
+    T.cucharita.position.set(-1.0,1.95,1.55).add(V(0.12,0.35,-0.45).multiplyScalar(dip)); T.cucharita.rotation.set(0.25*dip,-0.2,0.05+0.2*dip);
+    T.cucharita.userData.bocado.visible = (t>=36.05 && t<36.3) || (t>=37.85 && t<38.1);
+    T.medidor.position.set(0.7,1.8,0.2); T.medidor.rotation.y = -0.2; T.medidor.scale.setScalar(0.92);
+    cam(29, V(0,4.4,10.6), V(-0.05,2.85,0));
+  },
+  pose(t){},
+  recorte(g, t){ // cucharadas: mordidas redondas en la punta de arriba, una por bocado
+    const u = T.pastelito.userData, n = t < 36.05 ? 0 : (t < 37.85 ? 1 : 2); if (!n) return;
+    const p = P(T.pastelito, u.x0+0.05, u.alto-0.05, -0.12), s = escala(T.pastelito, V(u.x0, u.alto, 0));
+    const r = s*(n===1?0.32:0.42);
+    g.moveTo(p.x+r, p.y); g.arc(p.x, p.y, r, 0, 7);
+    if (n===2){ const q = P(T.pastelito, u.x0+0.45, u.alto+0.02, -0.12); g.moveTo(q.x+r*0.75, q.y); g.arc(q.x, q.y, r*0.75, 0, 7); }
+  },
+  dibujar(c,t,pase){
+    const md = T.medidor;
+    if (pase==='fondo') { rayosLuz(c, 0.1); const f = fPastel(T.pastelito, 0.2, 0.8); brillo(c, f.x, f.y, 480, 'rgba(255,226,170,0.85)'); return; }
+    const cx0 = P(md, 0, 0.62, 0.4), s = escala(md, V(0,0.62,0.4));
+    const R = s*0.55;
+    c.save(); c.translate(cx0.x, cx0.y); c.rotate(-0.06);
+    c.lineCap='butt';
+    const zonas = [[Math.PI, Math.PI*1.32, C.salvia],[Math.PI*1.32, Math.PI*1.64, C.dorado],[Math.PI*1.64, Math.PI*2, C.cereza]];
+    for (const [a0,a1,col] of zonas){ c.beginPath(); c.arc(0,0,R,a0,a1); c.lineWidth = s*0.12; c.strokeStyle=col; c.stroke(); }
+    for (let i=0;i<=8;i++){ const a = Math.PI + i/8*Math.PI; c.beginPath(); c.moveTo(Math.cos(a)*R*0.78, Math.sin(a)*R*0.78); c.lineTo(Math.cos(a)*R*0.66, Math.sin(a)*R*0.66); trazo(c, 5); }
+    // aguja: baja en dos pasos (~36.0 y ~37.8)
+    const s1 = eBack(prog(t,36.05,36.4),1.6), s2 = eBack(prog(t,37.85,38.2),1.6);
+    const a = Math.PI*(1.86 + (1.48-1.86)*s1 + (1.1-1.48)*s2);
+    c.beginPath(); c.moveTo(0,0); c.lineTo(Math.cos(a)*R*0.92, Math.sin(a)*R*0.92); trazo(c, 9, C.grafito);
+    c.beginPath(); c.arc(0,0,s*0.05,0,7); c.fillStyle=C.grafito; c.fill();
+    { c.font = fuente(s*0.12); c.textAlign='center'; c.textBaseline='middle'; const wA = c.measureText('ANTOJO').width+s*0.08, yA = -R*0.47; // rótulo encima de la aguja
+      rr(c, -wA/2, yA-s*0.085, wA, s*0.17, s*0.05); c.fillStyle='#FFFDF8'; c.fill(); c.fillStyle=C.grafito; c.fillText('ANTOJO', 0, yA+2); c.textBaseline='alphabetic'; }
+    const fa = prog(t,36.05,36.35);
+    if (fa > 0){ // flecha curva de bajada, por fuera del arco
+      c.globalAlpha = fa;
+      const ra = R*1.25, a0 = Math.PI*1.8, a1 = Math.PI*1.17;
+      c.beginPath(); c.arc(0,0,ra,a0,a1,true); trazo(c, 8, C.cereza);
+      const hx = Math.cos(a1)*ra, hy = Math.sin(a1)*ra, tx = Math.sin(a1), ty = -Math.cos(a1), nx = Math.cos(a1), ny = Math.sin(a1), hs = s*0.09;
+      c.beginPath(); c.moveTo(hx+tx*hs, hy+ty*hs); c.lineTo(hx-tx*hs*0.2+nx*hs*0.75, hy-ty*hs*0.2+ny*hs*0.75); c.lineTo(hx-tx*hs*0.2-nx*hs*0.75, hy-ty*hs*0.2-ny*hs*0.75); c.closePath();
+      c.fillStyle=C.cereza; c.fill(); trazo(c, 4, C.cereza);
+    }
+    c.restore();
+    const pk = pop(t,38.3,0.32,2.2); if (pk > 0.001) palomita(c, cx0.x - R*1.02, cx0.y + R*0.12, s*0.13*pk);
+    const f = fPastel(T.pastelito, 0.22, 0.62);
+    const pa = Math.max(0.35, parp(t,36.1,0.35), parp(t,37.9,0.35));
+    ojoP(c, f.x-f.s*0.14, f.y, f.s*0.1, {mira:[0.8,-0.2], parpado:pa, colParpado:'#EBCB8F'}); ojoP(c, f.x+f.s*0.2, f.y, f.s*0.1, {mira:[0.8,-0.2], parpado:pa, colParpado:'#EBCB8F'});
+    boca(c, f.x+f.s*0.04, f.y+f.s*0.24, f.s*0.18, 'picara');
+    for (const t0 of [36.05, 37.85]) if (t>=t0 && t<t0+0.5){ const b = P(T.cucharita, 0.05, 0.12, 0); destello(c, b.x+50, b.y-50, 0.7*pop(t,t0,0.25,2.2)*(1-prog(t,t0+0.3,t0+0.5)), C.dorado); }
+    rotuloPop(c, [[['POSTRE AL FINAL,']],[['EN PEDACITO']]], t, 35.6);
+  }
+},
+// ---------------------------------------------------------------- 10  MÁNDASELO A LA DE «YA NO PUEDO» (39.6–44.6)
+{ nombre:'c10 tacita', desde:39.6, hasta:44.61, encima:['tacita','cadenero'], contorno:['tacita','cadenero'],
+  montar(t){
+    const tt = Math.min(t, 43.8); // quieto desde 43.8
+    ver('puertaVIP','cadenero','tacita','posteA','cordon');
+    T.pared.position.set(0,0,-1.2);
+    T.puertaVIP.position.set(0.2,0,-1.1); T.puertaVIP.scale.setScalar(0.82);
+    T.cadenero.position.set(1.3,0,0.6); T.cadenero.rotation.y = -0.35;
+    const ab = eBack(prog(tt,39.75,40.3),1.5); // vuelve a abrir el cordón
+    mundo.poseCadenero({bIz:lerp(-0.4,-1.25,ab), bIx:lerp(-0.2,-0.35,ab), bDz:0.15, inclina:0.01*resp(tt), ladea:0.03*bulto(tt,43.15,43.6)});
+    T.posteA.position.set(-1.7,0,1.2);
+    mundo.scene.updateMatrixWorld(true);
+    const A = V(-1.7,1.95,1.2), Hm = local(T.cadenero.userData.bI.userData.mano, V(0,-0.12,0));
+    const suelta = eBack(prog(tt,40.35,40.75),1.2); // lo desengancha y cae colgando del poste (antes de 40.8)
+    const fin = lerpV(Hm, V(-1.25,0.08,1.5), suelta);
+    const sag = lerp(lerp(0.75, 0.3, ab), 0.05, suelta), pts = [A];
+    for (const k of [1/3, 2/3]){ const p = lerpV(A, fin, k); p.y -= sag*Math.sin(Math.PI*k); p.x = lerp(p.x, -1.7+0.15*k, suelta*(1-k*0.6)); pts.push(p); }
+    pts.push(fin); mundo.ponerCordon(pts.map(p=>[p.x,p.y,p.z]));
+    // la tacita entra corriendo de ladito (40.8–42.0)
+    const r = prog(tt,40.8,42.0), mov = 1-prog(tt,41.75,42.05), paso = tt*Math.PI*2*4.2, sn = Math.sin(paso);
+    T.tacita.visible = t >= 40.8;
+    T.tacita.position.set(lerp(-3.4,-0.5,eOut(r)), 0.32+0.07*Math.abs(sn)*mov, 1.5); T.tacita.scale.setScalar(1.7);
+    T.tacita.rotation.set(0,-0.5,-0.14-0.06*mov+0.05*bulto(tt,41.95,42.3));
+    T.tacita.userData.piernas[0].rotation.z = lerp(0.8, 0.7*sn, mov); T.tacita.userData.piernas[1].rotation.z = lerp(-0.6, -0.7*sn, mov);
+    cam(30, V(0,3.8,17.0), V(0.1,2.0,0));
+  },
+  pose(t){},
+  dibujar(c,t,pase){
+    const tt = Math.min(t, 43.8);
+    if (pase==='fondo'){
+      const lz = P(T.puertaVIP, 0, 2.2, 0); brillo(c, lz.x, lz.y, 520, 'rgba(255,214,140,0.55)');
+      const l = P(T.puertaVIP, 0, 4.6, 0.36), s = escala(T.puertaVIP, V(0,4.6,0.36));
+      c.save(); c.font = fuente(s*0.3); c.textAlign='center'; c.textBaseline='middle'; c.fillStyle=C.grafito; c.fillText('SALA VIP', l.x, l.y+3); c.restore();
+      return;
+    }
+    const f = fCad();
+    const silba = tt < 41.0;
+    if (tt < 43.2) caraCadenero(c, f, {cejas:true, alza:silba?0.04:0, boca:silba?'o':'picara', by:0.26, bw:silba?0.14:0.24, bang:-0.1, dxb:silba?0.06:0});
+    else caraCadenero(c, f, {guino:eOut(prog(tt,43.2,43.45)), boca:'picara', by:0.25, bw:0.24, bang:-0.1});
+    // silbidito: notitas que suben (39.6–41.4)
+    for (const [t0,dx] of [[39.6,0],[40.0,0.25],[40.4,-0.1]]){ const k = prog(tt,t0,t0+1.0); if (k<=0 || k>=1) continue;
+      c.save(); c.globalAlpha = 1-Math.pow(k,2); nota(c, f.x+f.s*(0.35+dx)+40*Math.sin(k*6), f.y+f.s*0.1-k*f.s*0.9, f.s*0.006*pop(tt,t0,0.25), 0.2*Math.sin(k*5)); c.restore(); }
+    if (t >= 40.8){
+      const tc = T.tacita, fc = P(tc, 0, 0.62, 0.48), st = escala(tc, V(0,0.62,0.48));
+      ojo(c, fc.x-st*0.17, fc.y, st*0.09, {mira:[-0.6,-0.2]}); ojo(c, fc.x+st*0.1, fc.y, st*0.09, {mira:[-0.6,-0.2]});
+      boca(c, fc.x-st*0.03, fc.y+st*0.18, st*0.18, 'sonrisa');
+      rubor(c, fc.x-st*0.3, fc.y+st*0.1, st*0.06, st*0.03); rubor(c, fc.x+st*0.22, fc.y+st*0.1, st*0.06, st*0.03);
+      const lk = 1-prog(tt,42.0,42.4); if (lk > 0){ c.save(); c.globalAlpha = lk; lineasCineticas(c, fc.x-st*0.62, fc.y+st*0.05, Math.PI, 3, 100, 40); c.restore(); }
+      const asa = proj(local(tc.userData.asa, V(0.1,-0.1,0)));
+      c.save(); c.translate(asa.x+30, asa.y-30); c.scale(1.3,1.3); c.rotate(-0.12 + 0.12*Math.sin(tt*Math.PI*2*4.2)*(1-prog(tt,41.75,42.05)) + 0.08*Math.sin((tt-42.0)*14)*bulto(tt,42.0,42.6));
+      c.beginPath(); c.moveTo(-14,-30); c.lineTo(0,10); c.lineTo(14,-30); trazo(c, 5, C.cereza);
+      rr(c, -120, 10, 240, 130, 16); c.fillStyle=C.papel; c.fill(); trazo(c, 6);
+      c.fillStyle=C.cereza; rr(c, -120, 10, 240, 42, 16); c.fill(); c.fillRect(-120, 34, 240, 18); rr(c, -120, 10, 240, 130, 16); trazo(c, 6);
+      c.font = fuente(30); c.textAlign='center'; c.fillStyle=C.papel; c.fillText('VIP', 0, 42);
+      c.font = fuente(31); c.fillStyle=C.grafito; c.fillText('SOBREMESA', 0, 110);
+      c.restore();
+    }
+    rotuloPop(c, [[['MÁNDASELO A LA DE']],[['“YA NO PUEDO”',C.cereza]]], tt, 40.25);
+  }
+},
+];
+
+// =====================================================================
+// SUBTÍTULOS (del SRT embebido, palabra por palabra; banda y 1390–1560)
+// =====================================================================
+const SUBS = (()=>{
+  const txt = document.getElementById('srt').textContent.trim();
+  const ts = s=>{ const [h,m,r]=s.split(':'); const [sec,ms]=r.split(','); return +h*3600 + +m*60 + +sec + +ms/1000; };
+  const pal = txt.split(/\n\s*\n/).map(b=>{ const l=b.trim().split('\n'); const [a,z]=l[1].split('-->').map(x=>ts(x.trim())); return {a, z, w:l.slice(2).join(' ').trim()}; });
+  // frases armadas a mano (palabras por frase, en orden); máximo 2 líneas
+  const N = [6,4,2,3,4, 2,5,3, 4,6,4,3,3, 6,5,5, 6,7,4,6, 6,3,4];
+  const fr = []; let i = 0; for (const n of N){ fr.push(pal.slice(i, i+n)); i += n; }
+  if (i !== pal.length) console.error('SRT: las frases no cuadran con las palabras', i, pal.length);
+  return fr.map((ws,i)=>{ const sig = fr[i+1]; const a = ws[0].a, z = ws[ws.length-1].z; return {a, z: sig ? Math.min(sig[0].a, z+0.6) : 99, txt: ws.map(w=>w.w).join(' ')}; });
+})();
+window.SUBS = SUBS;
+function lineasSub(c, txt, max){
+  const p = txt.split(' ');
+  if (c.measureText(txt).width <= max && p.length<=5) return [txt];
+  let mejor=null;
+  for (let i=1;i<p.length;i++){ const A=p.slice(0,i).join(' '), B=p.slice(i).join(' '); const m=Math.max(c.measureText(A).width, c.measureText(B).width); if(!mejor||m<mejor[0]) mejor=[m,[A,B]]; }
+  return mejor[1];
+}
+function subtitulo(c, t){
+  const s = SUBS.find(x=>t>=x.a && t<x.z); if (!s) return;
+  c.save(); c.font = fuente(66); c.textAlign='center'; c.textBaseline='middle';
+  const ls = lineasSub(c, s.txt, W-128-60), yc = 1475, paso = 82;
+  ls.forEach((l,i)=>{
+    const y = yc + (i-(ls.length-1)/2)*paso, w = c.measureText(l).width + 48;
+    c.fillStyle='rgba(241,230,210,0.96)'; rr(c, W/2-w/2, y-38, w, 76, 22); c.fill(); trazo(c, 3);
+    c.fillStyle=C.grafito; c.fillText(l, W/2, y+3);
+  });
+  c.restore();
+}
+
+// =====================================================================
+// capa2D(ctx, escena, t) y seek(t)
+// =====================================================================
+function capa2D(c, escena, t, pase){ c.save(); escena.dibujar(c, t, pase); c.restore(); c.setTransform(1,0,0,1,0,0); }
+
+const fantasmaMat = new THREE.MeshBasicMaterial({colorWrite:false, depthWrite:false});
+function fantasmas(nombres){
+  const g=[]; for (const n of nombres) T[n].traverse(o=>{ if (o.isMesh){ g.push([o,o.material]); o.material=fantasmaMat; } });
+  return ()=>{ for (const [o,m] of g) o.material=m; };
+}
+const capaTmp = document.createElement('canvas'); capaTmp.width=W; capaTmp.height=H; const tctx = capaTmp.getContext('2d');
+function anillo(src, r, col, n=16){
+  tctx.globalCompositeOperation='source-over'; tctx.clearRect(0,0,W,H);
+  for (let i=0;i<n;i++){ const a=i/n*Math.PI*2; tctx.drawImage(src, Math.cos(a)*r, Math.sin(a)*r); }
+  tctx.globalCompositeOperation='source-in'; tctx.fillStyle=col; tctx.fillRect(0,0,W,H);
+  tctx.globalCompositeOperation='source-over';
+  ctx.drawImage(capaTmp,0,0);
+}
+const capaP = document.createElement('canvas'); capaP.width=W; capaP.height=H; const pctx = capaP.getContext('2d');
+function pintarSolo(nombres, contorno, vino=false, recorte=null){
+  nombres = nombres.filter(n=>T[n].visible);
+  if (!nombres.length) return;
+  const otros = Object.keys(T).filter(k=>T[k].visible && !nombres.includes(k) && k!=='piso' && k!=='pared');
+  const vis = [[T.piso,T.piso.visible],[T.pared,T.pared.visible]]; T.piso.visible=false; T.pared.visible=false;
+  const undo = fantasmas(otros);
+  renderer.setClearColor(0x000000,0); renderer.render(mundo.scene, mundo.camera);
+  undo(); for (const [o,v] of vis) o.visible=v;
+  let src = renderer.domElement;
+  if (recorte){ pctx.globalCompositeOperation='source-over'; pctx.clearRect(0,0,W,H); pctx.drawImage(src,0,0);
+    pctx.globalCompositeOperation='destination-out'; pctx.beginPath(); recorte(pctx); pctx.fill(); pctx.globalCompositeOperation='source-over'; src = capaP; }
+  if (vino) anillo(src, 13, 'rgba(110,42,53,0.9)', 24);
+  if (contorno) anillo(src, 7, C.grafito);
+  ctx.drawImage(src,0,0);
+}
+
+const listo = (async ()=>{
+  try { await document.fonts.load(`800 100px "Avenir Next"`); await document.fonts.load(`italic 600 70px "Avenir Next"`); } catch(e){}
+})();
+
+window.ESCENAS = ESCENAS;
+window.seek = async function(t){
+  await listo;
+  t = Math.max(0, Math.min(window.DURATION, t));
+  const esc = ESCENAS.find(e => t >= e.desde && t < e.hasta) || ESCENAS[ESCENAS.length-1];
+  mundo.reset(); mundo.relleno.color.set(0xfff1de); T.cucharita.userData.bocado.visible = true;
+  esc.montar(t); esc.pose(t);
+  const kc = 1.4; // cereza 1.4× en todos
+  for (const cu of [T.pastel.userData.cuerpo, T.pastelito]) { const u = cu.userData; if (!u || !u.cereza) continue;
+    u.cereza.scale.setScalar(kc); u.cereza.position.y = u.cereza.userData.y0 + 0.17*(kc-1); u.tallo.position.y = u.tallo.userData.y0 + 0.34*(kc-1); }
+  mundo.scene.updateMatrixWorld(true);
+  const enc = esc.encima || [], cont = esc.contorno || [];
+  const capa1 = cont.filter(n=>!enc.includes(n));
+  const undo = fantasmas([...enc, ...capa1]);
+  renderer.setClearColor(0xF0E3CC, 1); renderer.render(mundo.scene, mundo.camera); undo();
+  ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,W,H);
+  ctx.drawImage(renderer.domElement, 0, 0);
+  pintarSolo(capa1, true);
+  capa2D(ctx, esc, t, 'fondo');
+  const pasteles = enc.filter(n=>cont.includes(n) && (n==='pastel'||n==='pastelito'));
+  pintarSolo(pasteles, true, true, esc.recorte ? (g)=>esc.recorte(g, t) : null);
+  pintarSolo(enc.filter(n=>cont.includes(n) && !pasteles.includes(n)), true);
+  pintarSolo(enc.filter(n=>!cont.includes(n)), false);
+  capa2D(ctx, esc, t, 'frente');
+  marca(ctx, T.telonFondo.visible);
+  subtitulo(ctx, t);
+};
+window.cajas = (nombres)=>{ const o={}; for (const n of nombres){ const b=new THREE.Box3().setFromObject(T[n]); let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;
+  for (const x of [b.min.x,b.max.x]) for (const y of [b.min.y,b.max.y]) for (const z of [b.min.z,b.max.z]){ const p=proj(V(x,y,z)); x0=Math.min(x0,p.x); y0=Math.min(y0,p.y); x1=Math.max(x1,p.x); y1=Math.max(y1,p.y); }
+  o[n]=[x0,y0,x1,y1].map(Math.round); } return o; };
+window.cajasVis = ()=>window.cajas(Object.keys(T).filter(k=>T[k].visible && k!=='piso' && k!=='pared'));
+
+// =====================================================================
+// REPRODUCTOR (fuera del canvas; con ?render=1 se oculta y no se escala)
+// =====================================================================
+const RENDER = new URLSearchParams(location.search).has('render');
+if (RENDER) document.body.classList.add('render');
+const voz = document.getElementById('voz'), btn = document.getElementById('play'), barra = document.getElementById('barra'), reloj = document.getElementById('reloj');
+function ajustar(){ if (RENDER) return; const e=document.getElementById('escena'); const k=Math.min(e.clientWidth/W, e.clientHeight/H)*0.98; cv.style.width=Math.round(W*k)+'px'; cv.style.height=Math.round(H*k)+'px'; }
+addEventListener('resize', ajustar); ajustar();
+let ocupado=false, pendiente=null;
+async function pintar(t){ if (ocupado){ pendiente=t; return; } ocupado=true; try{ await window.seek(t); } finally { ocupado=false; } if (pendiente!==null){ const p=pendiente; pendiente=null; pintar(p); } }
+function ui(t){ barra.value=t; reloj.textContent=t.toFixed(2)+' / '+window.DURATION.toFixed(2)+' s'; btn.textContent = voz.paused ? '▶ Reproducir' : '❚❚ Pausa'; }
+function bucle(){ const t=voz.currentTime; ui(t); pintar(t); if (!voz.paused && !voz.ended) requestAnimationFrame(bucle); else ui(voz.currentTime); }
+btn.onclick = ()=>{ if (voz.paused){ if (voz.currentTime >= window.DURATION-0.05) voz.currentTime=0; voz.play().then(()=>requestAnimationFrame(bucle)).catch(e=>{ reloj.textContent='sin audio: '+e.message; }); } else { voz.pause(); ui(voz.currentTime); } };
+barra.oninput = ()=>{ const t=+barra.value; voz.currentTime=t; ui(t); pintar(t); };
+voz.onended = ()=>ui(voz.currentTime);
+addEventListener('keydown', e=>{ if (e.code==='Space' && !RENDER){ e.preventDefault(); btn.onclick(); } });
+window.seek(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+{
+  "nombre": "video-fabrica",
+  "descripcion": "Fábrica de videos: Didier pega un texto en AI Studio y recibe el MP4. El orquestador decide todo lo demás. Guía: fabrica/GUIA-ORQUESTADOR.md.",
+  "oficio": "video",
+  "sin_didier": true,
+  "contexto": "paquete",
+  "tope_usd": 20,
+  "herramientas": {
+    "hoja": [
+      "node",
+      "{base}/engine/hoja-html.mjs",
+      "{html}",
+      "{png}",
+      "--tiempos-de",
+      "05-DIRECCION.md",
+      "--y-cada",
+      "2"
+    ],
+    "medir_camara": [
+      "node",
+      "{base}/engine/medir-camara.mjs",
+      "{html}",
+      "{salida}"
+    ]
+  },
+  "etapas": [
+    {
+      "id": "tema",
+      "nombre": "Tema y ángulo",
+      "trabajo": "idear",
+      "invitados": [
+        "flash",
+        "opus"
+      ],
+      "abre": "En el contexto está el paquete de este video: tema, datos permitidos y lo que ya se usó. Propón 3 ángulos. De cada uno: el gancho en palabras exactas (una duda que ya trae la señora, en sus palabras, con un objeto que se pueda dibujar, sin dato, que se diga en menos de 3 s, cómplice y chistosa, nunca amenaza de salud); qué le pasa físicamente a qué (la oración física, sin nombrar el tema); y cómo lo contesta el final sin prometer nada. Di cuál le mandarías a tu hermana. Nada de lo que el paquete marca en «Mundos prohibidos y usados» ni en «Ya usado»: ni su objeto, ni su material, ni su chiste.",
+      "reacciona": "Flash: suelta 5 frases coloquiales y chistosas de lo que de verdad vivimos, y 3 cosas que pasan y se ven (gags, no ideas abstractas). Opus: qué promete de más, qué se burla de un cuerpo y cuál no se entendería contado en un párrafo.",
+      "cierra": "Deja, sin nombres poéticos: GANCHO (palabras exactas) y 2 alternativas; EL VIDEO EN UN PÁRRAFO contado como lo que se va a ver («primero ves…, luego…»); LA METÁFORA, una sola, con su objeto protagonista y 4 cosas que le pasan, de otra familia de objeto y material que lo prohibido y lo usado del paquete; EL DATO que llega después como alivio, solo de los DATOS PERMITIDOS del paquete, con su alcance (si no hay, di «sin dato»); CÓMO LO CONTESTA EL FINAL sin prometer; CHISTES, los 5 mejores de complicidad, en bruto, sin repetir objetos ni chistes de «Ya usado». Este entregable puede medir lo que necesite: ignora cualquier tope de caracteres.",
+      "entregable": "01-CONCEPTO.md",
+      "compuerta": "tema",
+      "topes": {
+        "lider": 1500,
+        "invitado": 500
+      },
+      "vetos": "concepto"
+    },
+    {
+      "id": "speech",
+      "nombre": "Speech",
+      "trabajo": "construir",
+      "lider": "opus",
+      "motivo_elenco": "regla de Didier: el speech siempre lo escribe Opus, con Argon de invitado (FALLA 49)",
+      "invitados": [
+        "argon",
+        "flash"
+      ],
+      "abre": "Escribe el speech desde 01-CONCEPTO, que viene completo abajo: su gancho, su metáfora y sus chistes. Unas 2.3 palabras por segundo contando silencios: mira palabras_max_speech en los hechos. Una señora lo entiende a la primera; se lo dirías a una amiga. Orden: gancho; complicidad con chiste; la metáfora nombrada en voz antes de los 12 s; el dato como sorpresa que alivia, una vez con su alcance y sin sonar a abogado; chiste y un giro; la duda práctica que ya trae la señora, dicha con sus palabras; el matiz, una línea; el regreso que contesta el gancho sin prometer; y el remate: una última risa que reusa un chiste del video, con «sígueme» y a quién mandárselo. La narradora cierra el video, no hay otra toma después. Al menos 3 chistes de «así somos», uno cada 15 a 20 s, y cada uno se tiene que poder dibujar. Solo cifras de DATOS PERMITIDOS; un dato derivado no entra. Sin relleno: en ningún tramo pasan más de 4 s sin nada nuevo.",
+      "reacciona": "Argon: di qué frase no se puede volver algo que se ve y cuál pide otra imagen, y qué momento pide silencio. Flash: suelta 5 frases más de señora mexicana para meterle a este speech.",
+      "cierra": "Deja, con estas líneas exactas: primero, entre una línea 'SPEECH:' y una línea 'FIN', solo lo que se dice, con cifras en número. Luego, entre 'VOZ:' y 'FIN-VOZ', lo mismo para grabar: los números en letras, y etiquetas <short pause>, <long pause> y <chuckles> donde se ganen (sin 'faster'). Luego, entre 'SILENCIOS:' y 'FIN-SILENCIOS', los silencios que se meten después de grabar, una línea por cada uno: 'después de «frase exacta»: 1.5' (máximo 2, solo donde algo grande caiga o aterrice) y 'al final: 2.5' (la cola sin voz, entre 2 y 3.5 s, con la tarjeta de redes en pantalla). Debajo, fuera de los bloques, una línea por frase con lo que se ve. Lee en voz alta: si suena a abogado o a estudio, reescribe. Este entregable puede medir lo que necesite: ignora cualquier tope de caracteres.",
+      "entregable": "03-SPEECH.md",
+      "revisor": "terra",
+      "revisor_si": "\\d|estudio|por ciento|promedio|kilos?\\b|gramos|calor",
+      "revisa": "Solo las afirmaciones sobre hechos, contra los DATOS PERMITIDOS del paquete: ¿alguna inventada, exagerada, vuelta certeza, una cifra que no está ahí o una promesa de resultado? Si algo no se sostiene, propón la versión más fuerte que sí sea cierta (no la más tibia). Un chiste no es una afirmación, salvo que prometa un resultado. Si no hay nada que revisar, PASA.",
+      "exige": [
+        "^\\s*SPEECH:\\s*$",
+        "^\\s*FIN\\s*$",
+        "^\\s*VOZ:\\s*$",
+        "^\\s*FIN-VOZ\\s*$",
+        "^\\s*SILENCIOS:\\s*$",
+        "^\\s*FIN-SILENCIOS\\s*$"
+      ],
+      "libro": [
+        "Palabras y tono",
+        "Speech y retención",
+        "Salud y producto"
+      ],
+      "compuerta": "speech",
+      "lee": [
+        "01-CONCEPTO.md"
+      ],
+      "topes": {
+        "lider": 1800,
+        "invitado": 500
+      },
+      "muestra_hechos": [
+        "palabras_speech",
+        "palabras_max_speech"
+      ]
+    },
+    {
+      "id": "voz-texto",
+      "nombre": "Texto y tono para AI Studio",
+      "tipo": "script",
+      "trabajo": "construir",
+      "herramienta": "voz_texto",
+      "entregable": "VOZ-AI-STUDIO.md"
+    },
+    {
+      "id": "voz",
+      "nombre": "Esperar la voz grabada",
+      "tipo": "espera",
+      "trabajo": "construir",
+      "archivos": [
+        "voz-original.wav"
+      ],
+      "muestra": "VOZ-AI-STUDIO.md"
+    },
+    {
+      "id": "voz-preparar",
+      "nombre": "Preparar la voz (sin modelo)",
+      "tipo": "script",
+      "trabajo": "construir",
+      "herramienta": "voz_preparar",
+      "entregable": "VOZ-REPORTE.md",
+      "compuerta": "voz"
+    },
+    {
+      "id": "direccion",
+      "nombre": "Dirección: mundo nuevo y cada frase visible",
+      "tipo": "taller",
+      "trabajo": "especificar",
+      "papel": "dirigir",
+      "entregable": "05-DIRECCION.md",
+      "tope_s": 1500,
+      "instruccion": "Lee ENCARGO-DIRECCION.md, RECETA-CREATIVA.md, MUNDOS.md y MARCA.json en {base}/craft y cumple ese encargo al pie de la letra. El material de este video está en {carpeta}: 01-CONCEPTO.md, 03-SPEECH.md, timing/TIMING.md y voz.srt. Deja 05-DIRECCION.md en esa carpeta. Solo lees y escribes ese archivo: no corras ningún comando. {correccion}",
+      "exige": [
+        "^\\s*\\**MUNDO:?\\**\\s*$",
+        "^\\s*\\**FIN-MUNDO\\**\\s*$",
+        "^\\s*\\**TIEMPOS_CLAVE:\\**\\s*\\d"
+      ],
+      "vetos": "mundo"
+    },
+    {
+      "id": "aterrizaje",
+      "nombre": "Aterrizaje de la dirección",
+      "tipo": "taller",
+      "trabajo": "especificar",
+      "papel": "aterrizar",
+      "entregable": "05b-AJUSTES.md",
+      "tope_s": 900,
+      "leer": [
+        "{base}/cerebro/referencias"
+      ],
+      "instruccion": "Eres quien aterriza lo creativo. Lee 05-DIRECCION.md y 03-SPEECH.md en {carpeta} y la sección «Lista del aterrizaje» de {base}/craft/RECETA-CREATIVA.md; los criterios de gusto están en {base}/cerebro/referencias/decisiones-didier.md. Busca solo: PROMESA (algo que se lea como «si haces esto te pasa aquello», o que el objeto del gancho mejore al final); MAREO (viajes de cámara de menos de 1.8 s, órbitas de más de 90°, algo que aparece mientras la cámara se mueve, dos viajes en 4 s); DOBLE FOCO (dos cosas grandes a la vez); SATURACIÓN (elementos sin función); BURLA de un cuerpo; MUNDO REPETIDO (el bloque MUNDO contra el registro de MUNDOS.md: debe cambiar al menos 5 de 8 ejes y no repetir material base, protagonista ni columna, ni nada de la línea PROHIBIDOS; si en el chat hay una alerta de repetición, resuélvela aquí); LO NO PROBADO (un efecto de la lista de MUNDOS.md sin su alternativa escrita); TOMA LARGA (más de 10 s con la misma toma sin un evento cada 2 a 4 s dentro del cuadro). Deja 05b-AJUSTES.md, máximo 6 puntos con segundos exactos: lo que aquí digas manda sobre 05-DIRECCION.md. Si no hay nada, escribe «Sin ajustes.» y por qué. Después de esos puntos, siempre, estos dos bloques, para no rehacer geometría al final. Una línea 'POSES:' y debajo una línea por pose de cámara: qué debe caber en cuadro, su tamaño y lo que de verdad ve esa pose, medido con /usr/bin/python3 {base}/engine/encuadre.py --fov <grados> --distancia <d> --ancho <lo que debe caber>, y cómo queda la pose si no cabe (las cuentas de Argon no valen hasta medirlas). Una línea 'HECHOS EN PANTALLA:' y debajo cada fecha, día de la semana, cantidad o unidad que se vaya a ver en la imagen, cotejada contra el paquete y el calendario real; lo que no se pueda sostener se quita (si no hay ninguno, «ninguno»). No toques 05-DIRECCION.md. {correccion}",
+      "exige": [
+        "^\\s*\\**POSES:?\\**\\s*$",
+        "^\\s*\\**HECHOS EN PANTALLA:?\\**\\s*$"
+      ],
+      "permite": [
+        "Bash(/usr/bin/python3 {base}/engine/encuadre.py:*)"
+      ]
+    },
+    {
+      "id": "imagenes",
+      "nombre": "Recortes de imagen por Codex (autorizado; se enciende con --con imagenes)",
+      "tipo": "taller",
+      "trabajo": "construir",
+      "papel": "imagenes",
+      "solo_con": "imagenes",
+      "entregable": "_recortes/LISTA.md",
+      "tope_s": 900,
+      "instruccion": "Lee en {carpeta}/05-DIRECCION.md la lista de recortes que pide. Genera cada uno como PNG con fondo transparente en _recortes/, sin letras ni números ni logos, sin parecido a nadie famoso. Deja _recortes/LISTA.md con archivo y qué es. {correccion}"
+    },
+    {
+      "id": "boceto",
+      "nombre": "Boceto del mundo: 5 cuadros clave",
+      "tipo": "ab",
+      "trabajo": "construir",
+      "papel": "boceto",
+      "entregable": "estilo.html",
+      "hoja": "estilo.png",
+      "hoja_herramienta": "hoja_estilo",
+      "tope_s": 1200,
+      "instruccion": "Construye estilo.html, el boceto del mundo: 5 cuadros clave, terminados y bonitos: el cuadro 1 con el gancho ya escrito, el protagonista, el momento sagrado, la toma que paga y la tarjeta final. Un solo HTML en 3D con Three.js r159: cárgalo con <script src=\"file://{base}/vendor/three.min.js\"></script> (ya está ahí; no uses módulos, CDN ni otras librerías) y usa el global THREE. Crea new THREE.WebGLRenderer({{canvas, antialias:true, preserveDrawingBuffer:true}}) sobre <canvas id=\"c\"> de 1080x1920 (sin preserveDrawingBuffer la hoja y el render salen negros). Si hay imágenes o fuentes que esperar, window.renderReady = una promesa. La cámara vive en una variable global llamada camera, para poder medirla. Todo determinista: render(t) puro, sin Math.random sin semilla, sin relojes, sin física acumulada; window.seek(t) fija todo y llama renderer.render. window.DURATION = 5 y window.seek(t) dibuja el cuadro floor(t)+1 en su pose. El texto y la marca van en una capa 2D pintada dentro de #c (CanvasTexture sobre una escena ortográfica), no en otro canvas encima. Geometría en código, sin imágenes salvo que 05-DIRECCION.md nombre recortes que ya existan en esta carpeta. Lee 05-DIRECCION.md y 05b-AJUSTES.md (05b manda) de {carpeta}; la marca y las redes salen de {base}/craft/MARCA.json. Las coordenadas de Argon son intención, no medida: lo que no se mueve es lo que se entiende. Este código será la base de la animación: organízalo con objetos y poses con nombre, sin pasos de armado (edita el HTML directo, sin base64). El cuadro 1 trae el gancho completo desde t=0, sin fundido de entrada. Usa las poses medidas de 05b-AJUSTES.md. Corre tu prueba, mira tu hoja y corrige hasta que cada cuadro se entienda.",
+      "verificar": "node {base}/engine/hoja-html.mjs estilo.html _verificar/estilo.png --cada 1",
+      "revisor": "argon",
+      "revisa_a_ciegas": true,
+      "revisa": "Mira estilo.png con read_file: 5 cuadros clave de un video. Describe primero, en 3 líneas, lo que de verdad ves. Opina solo de la imagen, no de lo que se supone que debería haber. ¿Se entiende qué pasa sin voz, los ojos saben a dónde ir, el mundo se ve rico o vacío, parece 3D genérico o de plástico, hay algo roto, encimado, cortado o ilegible a tamaño de teléfono? No edites nada. Luego \"PASA\" o \"CAMBIA: <qué, en qué segundo o cuadro>\". Máximo 8 líneas.",
+      "compuerta": "boceto",
+      "retoca": "retocar",
+      "fondo": "animar"
+    },
+    {
+      "id": "animacion",
+      "nombre": "Animación con vida, en una sola pasada",
+      "tipo": "taller",
+      "trabajo": "construir",
+      "papel": "animar",
+      "entregable": "reel.html",
+      "tope_s": 2700,
+      "instruccion": "Construye reel.html, el video completo, partiendo del código de estilo.html (mismas geometrías, materiales, luces y encuadres). Un solo HTML en 3D con Three.js r159: cárgalo con <script src=\"file://{base}/vendor/three.min.js\"></script> (ya está ahí; no uses módulos, CDN ni otras librerías) y usa el global THREE. Crea new THREE.WebGLRenderer({{canvas, antialias:true, preserveDrawingBuffer:true}}) sobre <canvas id=\"c\"> de 1080x1920 (sin preserveDrawingBuffer la hoja y el render salen negros). Si hay imágenes o fuentes que esperar, window.renderReady = una promesa. La cámara vive en una variable global llamada camera, para poder medirla. Todo determinista: render(t) puro, sin Math.random sin semilla, sin relojes, sin física acumulada; window.seek(t) fija todo y llama renderer.render. window.DURATION = la duración exacta de voz.wav (mira los hechos). El HTML no lleva audio. Lee en {carpeta}: 05-DIRECCION.md, 05b-AJUSTES.md (manda sobre la dirección), timing/TIMING.md (el segundo de cada palabra), voz.srt (los subtítulos) y {base}/craft/MARCA.json. En esta MISMA pasada va todo: cada frase se vuelve algo que se ve, los momentos fuertes y la capa de vida de fondo, no hay una segunda pasada. Argon calculó sus posiciones sin ver: colócalas viendo el cuadro, parte de las poses medidas en 05b-AJUSTES.md y reporta lo que moviste. Las fechas y cantidades de la imagen son las de HECHOS EN PANTALLA de 05b-AJUSTES.md. Cámara: llega, se detiene y deja leer; viajes de 1.8 a 2.6 s con ease; nunca se mueve mientras aparece una cifra. Un foco a la vez y algo nuevo cada 2 a 4 s dentro del cuadro. Capa 2D: dibújala en un canvas fuera de pantalla, súbela como CanvasTexture y píntala con una escena ortográfica en el MISMO canvas #c (render y hoja solo capturan #c; un canvas encima no sale en el video): subtítulos por frase en la banda de zonas, tal cual vienen en voz.srt (ya traen la ortografía del speech: no los reescribas), rótulos, la marca fija todo el video y la tarjeta de redes (ambas de MARCA.json, con sus valores exactos). Nada que explique detrás de la banda de subtítulos. El gancho va escrito grande y completo desde t=0, sin fundido de entrada, y mientras esté en cuadro no lleva subtítulo. Un rótulo nunca repite lo que dice el subtítulo. Corre tu prueba y mira la hoja (un cuadro cada 2 s y uno en cada segundo de TIEMPOS_CLAVE de 05-DIRECCION.md; si agregas un evento, agrégale su segundo a esa línea): si dos cuadros seguidos son casi iguales ahí falta un evento; si algo se corta o se encima, corrígelo. Deja NOTAS-ANIMACION.md, máximo 10 líneas: qué moviste de la dirección y por qué, y qué dudas quedan. {correccion}",
+      "verificar": "node {base}/engine/hoja-html.mjs reel.html _verificar/hoja.png --tiempos-de 05-DIRECCION.md --y-cada 2.5"
+    },
+    {
+      "id": "sonido",
+      "nombre": "Ruiditos y mezcla",
+      "tipo": "taller",
+      "trabajo": "construir",
+      "papel": "sonido",
+      "entregable": "audio-final.wav",
+      "tope_s": 1200,
+      "instruccion": "Haz el audio del video: es lo que más se cuida en este video y aquí solo se puede medir. Copia {base}/engine/ruidos-base.py a {carpeta}/ruidos.py y escribe solo su sección de eventos: un ruido por cada cosa que aparece en reel.html, en el segundo de timing/TIMING.md y 05-DIRECCION.md, y un fondo continuo del mundo. Los materiales de este mundo suenan a lo suyo. Un solo sonido dominante, el del momento sagrado. Sin música, nada descargado. No toques voz.wav, voz-limpia.wav ni voz.srt. Corre, un comando a la vez: /usr/bin/python3 ruidos.py voz.wav voz-limpia.wav ruidos.wav audio-final.wav. Debe decir peor distancia de al menos 15 dB y durar lo mismo que voz.wav. Deja NOTAS-SONIDO.md en máximo 8 líneas: qué suena y cuándo, y las medidas. {correccion}",
+      "verificar": "node_modules/ffmpeg-static/ffmpeg -hide_banner -i audio-final.wav -af volumedetect -f null -",
+      "permite": [
+        "Bash(/usr/bin/python3 ruidos.py:*)",
+        "Bash(cp:*)",
+        "Bash(node_modules/ffmpeg-static/ffmpeg:*)"
+      ]
+    },
+    {
+      "id": "render",
+      "nombre": "Render, copia ligera y revisión",
+      "tipo": "render",
+      "trabajo": "verificar",
+      "medir": true,
+      "revisor": "argon",
+      "revisa_a_ciegas": true,
+      "revisa": "Mira hoja.png con read_file: cuadros de un video, uno cada 2.5 s y otros en sus momentos clave, cada uno con su segundo. Son cuadros fijos: algo a medias puede ser un movimiento. Describe primero, en 3 líneas, lo que de verdad ves. Opina solo de la imagen, no de lo que se supone que debería haber. ¿Se entiende qué pasa sin voz, los ojos saben a dónde ir, el mundo se ve rico o vacío, parece 3D genérico o de plástico, hay algo roto, encimado, cortado o ilegible a tamaño de teléfono, o dos cuadros seguidos casi iguales? No edites nada. Luego \"PASA\" o \"CAMBIA: <qué, en qué segundo o cuadro>\". Máximo 8 líneas.",
+      "compuerta": "final",
+      "libro": [
+        "Visual y zonas"
+      ],
+      "retoca": "retocar",
+      "fondo": "animar",
+      "verificar": "node {base}/engine/hoja-html.mjs reel.html _verificar/hoja.png --tiempos-de 05-DIRECCION.md --y-cada 2.5",
+      "tope_s": 2700
+    },
+    {
+      "id": "textos",
+      "nombre": "Texto para Reels y TikTok",
+      "trabajo": "construir",
+      "papel": "textos",
+      "invitados": [],
+      "cierra": "Escribe los textos de publicación de este video, desde su speech, que viene completo abajo. Instagram Reels: 2 a 4 líneas con la misma voz cómplice del speech, sin promesas de salud ni de resultado, y 3 a 5 hashtags. TikTok: 1 o 2 líneas y 3 hashtags. Cierra invitando a seguir y a mandárselo a alguien, como el video. Las redes exactas están en la sección Marca del paquete. Cifras solo de DATOS PERMITIDOS. Solo los dos textos, listos para copiar.",
+      "entregable": "TEXTOS-PUBLICACION.md",
+      "lee": [
+        "03-SPEECH.md"
+      ]
+    },
+    {
+      "id": "mundo",
+      "nombre": "Anotar el mundo usado",
+      "tipo": "script",
+      "trabajo": "construir",
+      "herramienta": "mundo_registrar"
+    },
+    {
+      "id": "cierre",
+      "nombre": "Cierre",
+      "tipo": "leccion",
+      "trabajo": "decidir",
+      "lider": "opus",
+      "motivo_elenco": "a priori: Opus ve el proceso completo",
+      "abre": "En una sola línea: la lección más útil de esta corrida para la próxima vez (proceso, no contenido)."
+    }
+  ]
+}
